@@ -1,0 +1,2 @@
+# Aprendizados da semana
+Nessa primeira semana estudando na **Labenu**, aprendi comandos básicos do **terminal**, a mexer um pouco no **VSCode** e ainda estou me familiarizando com o **git**. No primeiro dia tivemos algumas aulas básicas de Slack e Zoom. Hoje a palestra do **George Brindeiro** foi sensacional, o cara é muito fera! A palestra de empregabilidade foi bem interessante.
