@@ -104,6 +104,13 @@ table {
     text-align: center;
 }
 
+img {
+    margin: 2px;
+    width: 50px; /* you can use % */
+    height: auto;
+}
+
+
 td button {
     background-color: #fadf63;
     width: 150px;
