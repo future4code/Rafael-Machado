@@ -7,6 +7,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: roboto;
 }
 
 h2 {
@@ -19,6 +20,8 @@ h2 {
 input {
     height: 20px;
     width: 500px;
+    /* BUG 9 - Aqui fica o campo de busca na página COMPRAR
+    eu ainda não descobri como deixar só a borda de baixo */
 }
 
 button:focus {
@@ -33,9 +36,9 @@ div>p:first-child {
     display: inline;
 }
 
-div img {
+/* div img {
     background: black;
-}
+} */
 
 .botao-amarelo {
     background-color: #ffaf43;
@@ -51,14 +54,18 @@ div img {
     background-color: #c44f00;
 }
 
+
 .container {
     height: 500px;
     text-align: center;
 }
 
 .icone {
-    height: 15px;
+    height: 30px;
+    
 }
+
+
 
 
 /** 
@@ -98,11 +105,16 @@ div img {
 div:nth-child(2),
 div:last-child {
     text-align: center;
+    font-family: roboto;
 }
 
 table {
-    width: 60%;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    margin-left: 25%;
+    width: 50%;
     text-align: center;
+    font-family: roboto;
 }
 
 img {
@@ -118,10 +130,20 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+    font-family: roboto;
 }
 
+td button:hover {
+    background-color: #f36624;
+}
+
+td button:active {
+    background-color: rgb(19, 19, 19);
+    color: rgb(255, 255, 255);
+  }
+
 .container-do-search {
-    margin-top: 20px;
+    margin-top: 30px;
     height: 100px;
 }
 
@@ -138,4 +160,8 @@ td button {
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+body {
+    font-family: roboto;
 }
