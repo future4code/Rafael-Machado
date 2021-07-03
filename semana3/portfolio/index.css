@@ -130,9 +130,13 @@ p {
     font-size: 19px;
 }
 
-ul {
+ul, form {
     font-family: roboto;
     font-size: 17px;
+}
+
+form input {
+    display:block
 }
 
 
