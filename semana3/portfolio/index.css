@@ -17,7 +17,6 @@
     margin-left: 3%;
     padding: 12px 15px 12px 15px;
     color: #1a76ac;
-    ;
     text-align: center;
     font-size: 21px;
     font-family: montserrat;
@@ -29,7 +28,7 @@
     color:rgb(255, 255, 255)
 }
 
-#menu2-projetos {
+#menu2 {
     background-color: #ffffff;
     margin-right: 0%;
     margin-left: 0%;
@@ -41,24 +40,7 @@
     display: inline
 }
 
-#menu2-projetos:hover {
-    background-color: #0f3850;
-    color:rgb(255, 255, 255)
-}
-
-#menu3-contato {
-    background-color: #ffffff;
-    margin-right: 0%;
-    margin-left: 0%;
-    padding: 12px 15px 12px 15px;
-    color: #1a76ac;
-    text-align: center;
-    font-size: 21px;
-    font-family: montserrat;
-    display: inline
-}
-
-#menu3-contato:hover {
+#menu2:hover {
     background-color: #0f3850;
     color:rgb(255, 255, 255)
 }
@@ -67,34 +49,58 @@ a {
     text-decoration: none;
 }
 
-
-
-
-
-input {
-    height: 20px;
-    width: 500px;
-    /* BUG 9 - Aqui fica o campo de busca na página COMPRAR
-    eu ainda não descobri como deixar só a borda de baixo */
+.footer {
+    background-color: rgb(20, 19, 19);
+	bottom: 0;
+	width: 100%;
+    text-align: left;
+    font-size: 17px;
+    font-family: montserrat;
+    color: white;
+    padding: 50px 50px 50px 50px;
+    text-decoration: none;
 }
 
-button:focus {
+#footer-link {
+    background-color: #ffffff;
+    margin-right: 1%;
+    margin-left: 0%;
+    padding: 12px 15px 12px 15px;
+    color: #000000;
+    text-align: left;
+    font-size: 17px;
+    font-family: montserrat;
+    display: inline
+}
+
+#footer-link:hover {
+    background-color: #0f3850;
+    color:white
+}
+
+/* input {
+    height: 20px;
+    width: 500px;
+    
+} */
+
+/* button:focus {
     color: white;
 }
 
 img {
     width: 100px;
-}
+} */
 
-div>p:first-child {
+/* div>p:first-child {
     display: inline;
-}
+} */
 
 /* div img {
     background: black;
 } */
 
-.botao-amarelo {
+/* .botao-amarelo {
     background-color: #ffaf43;
     width: 250px;
     height: 40px;
@@ -106,7 +112,7 @@ div>p:first-child {
 
 .botao-amarelo:hover {
     background-color: #c44f00;
-}
+} */
 
 
 .container {
@@ -114,15 +120,21 @@ div>p:first-child {
     text-align: center;
 }
 
-.icone {
+/* .icone {
     height: 30px;
     
-}
+} */
 
 p {
     font-family: roboto;
     font-size: 19px;
 }
+
+ul {
+    font-family: roboto;
+    font-size: 17px;
+}
+
 
 
 
@@ -168,7 +180,7 @@ p {
     padding: 30px 0px;
 }
 
-#container-para-comprar {
+/* #container-para-comprar {
     background-color: #e7eb90;
 }
 
@@ -176,78 +188,8 @@ p {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
-}
-
-
-/**
-  *
-  *  ESTILOS COMPRAR 
-  *
-  **/
-
-div:nth-child(2),
-div:last-child {
-    text-align: center;
-    font-family: roboto;
-}
-
-table {
-    margin-top: 1%;
-    margin-bottom: 3%;
-    margin-left: 25%;
-    width: 50%;
-    text-align: center;
-    font-family: roboto;
-}
-
-/* img {
-    margin: 2px;
-    width: 50px; 
-    height: auto;
 } */
 
-
-td button {
-    background-color: #fadf63;
-    width: 150px;
-    height: 30px;
-    border-radius: 5px;
-    color: black;
-    font-family: roboto;
-}
-
-td button:hover {
-    background-color: #f36624;
-}
-
-td button:active {
-    background-color: rgb(19, 19, 19);
-    color: rgb(255, 255, 255);
-  }
-
-.container-do-search {
-    margin-top: 30px;
-    height: 100px;
-}
-
-
-#back-button {
-    background-color: white;
-    width: 100px;
-    height: 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 10px;
-    color: black;
-}
-
-#back-button:hover {
-    background-color: #635a3d
-}
-
-body {
-    font-family: roboto;
-}
 
 /**
   *
@@ -271,6 +213,7 @@ body {
     margin-left: 3%;
     margin-right: 3%;
     margin-top: 0%;
+    margin-bottom: 20%;
 }
 
 /* .texto-basico-projeto {
@@ -279,3 +222,85 @@ body {
     text-align: left;
 } */
 
+
+
+
+  
+  
+ /* ///////////////////////////////////////////////////////////////////////////// */
+
+
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+  /* div:nth-child(2),
+  div:last-child {
+      text-align: center;
+      font-family: roboto;
+  }
+  
+  table {
+      margin-top: 1%;
+      margin-bottom: 3%;
+      margin-left: 25%;
+      width: 50%;
+      text-align: center;
+      font-family: roboto;
+  }
+  
+  img {
+      margin: 2px;
+      width: 50px; 
+      height: auto;
+  } */
+
+
+
+
+
+/*  
+  td button {
+      background-color: #fadf63;
+      width: 150px;
+      height: 30px;
+      border-radius: 5px;
+      color: black;
+      font-family: roboto;
+  }
+  
+  td button:hover {
+      background-color: #f36624;
+  }
+  
+  td button:active {
+      background-color: rgb(19, 19, 19);
+      color: rgb(255, 255, 255);
+    }
+  
+  .container-do-search {
+      margin-top: 30px;
+      height: 100px;
+  }
+  
+  
+  #back-button {
+      background-color: white;
+      width: 100px;
+      height: 20px;
+      border: 1px solid black;
+      border-radius: 5px;
+      font-size: 10px;
+      color: black;
+  }
+  
+  #back-button:hover {
+      background-color: #635a3d
+  }
+  
+  body {
+      font-family: roboto;
+  }
+   */
