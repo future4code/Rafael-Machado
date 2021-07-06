@@ -1,0 +1,64 @@
+header {
+    background-color: rgb(98, 1, 1);
+    color: whitesmoke;
+    border: 5px solid black;
+    margin: 30px;
+    padding: 10px 10px;
+    font-size: 19px;
+    text-align: center;
+    
+}
+.texto-basico {
+    font-size: 31px;
+    color:rgb(77, 77, 77);
+    
+    margin-left: 150px;
+    padding: 10px 10px;
+}
+
+.texto-link {
+    font-size: 17px;
+    color:black;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px 10px;
+}
+
+.centraliza-texto {
+    text-align: center;
+  }
+
+  footer {
+    background-color: rgb(98, 1, 1);
+    color: whitesmoke;
+    border: 5px solid black;
+    margin: 30px;
+    padding: 10px 10px;
+    font-size: 17px;
+    text-align: center;
+    
+}
+
+.texto-destaque {
+    background-color: rgb(5, 34, 0);
+    color: rgba(255, 255, 255, 0.876);
+    border: 5px solid rgb(0, 0, 0);
+    margin: 30px;
+    padding: 10px 10px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.nao-mostrar {
+    display: none;
+}
+
+ol {
+    background-color: rgb(5, 34, 0);
+    color: whitesmoke;
+    border: 5px solid black;
+    margin: 30px;
+    padding: 35px 35px;
+    font-size: 19px;
+         
+}
