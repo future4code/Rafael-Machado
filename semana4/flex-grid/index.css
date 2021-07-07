@@ -1,0 +1,52 @@
+* {
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  font-family: Montserrat;
+  background-color: mediumvioletred
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+}
+
+main > div {
+    border: 1px solid black;
+}
+
+.navegacao {
+    width: 500px;
+}
+
+footer {
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Montserrat;
+  background-color: mediumvioletred
+}
+
+img,
+button {
+  height: 25px;
+}
+
+
+button {
+  margin-right: 7px;
+}
