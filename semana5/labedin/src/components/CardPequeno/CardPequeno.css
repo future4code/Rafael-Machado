@@ -1,0 +1,27 @@
+.scard-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    height: 70px;
+    
+        
+}
+
+/* .scard-container > img {
+    width: 70px;
+    margin-right: 10px;
+    border-radius: 50%;
+} */
+
+.scard-container h4 {
+    margin-bottom: 0px;
+    margin-right: 7px;
+}
+
+.scard-container > div {
+    display: flex;
+    /* flex-direction: column; */
+        
+
+}
