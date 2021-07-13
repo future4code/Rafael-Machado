@@ -4,12 +4,34 @@ import CardGrande from './components/CardGrande/CardGrande';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import fotoRafael from "./Rafael.JPG";
 import CardPequeno from './components/CardPequeno/CardPequeno';
+import styled from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
+
+// Estilos definidos aqui serão aplicados a toda a aplicação
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  /* Outros estilos globais */
+`;
+
+const BlueTitle = styled.h2`
+  color: #110c70;
+  `
+
 
 function App() {
   return (
     <div className="App">
+      <GlobalStyle/>
       <div className="page-section-container">
-        <h2>Dados pessoais</h2>
+        <BlueTitle>Dados pessoais</BlueTitle>
         <CardGrande 
           imagem={fotoRafael}
           nome="Rafael Machado" 
