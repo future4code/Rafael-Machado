@@ -1,22 +1,7 @@
 import React from "react"
 
 class Etapa2 extends React.Component {
-    state = {
-        telaAtual: "tela2"
-    }
-
-    irParaEtapa2 = () => {
-        this.setState({ telaAtual: "tela2"})
-    }
-
-    irParaEtapa3 = () => {
-        this.setState({ telaAtual: "tela3"})
-    }
     
-    irParaTelaFinal = () => {
-        this.setState({ telaAtual: "telaFinal"})
-    }
-
     render() {
         return (
             <div>
@@ -24,12 +9,12 @@ class Etapa2 extends React.Component {
                 <ul><li>Qual curso?</li></ul>
                 <input />
                 <ul><li>Qual o nome da Universidade/Curso?</li></ul>
-                <input />
-                <button onClick={this.irParaTelaFinal}>Próxima Etapa</button>
+                <input></input>
+                <button onClick={this.props.irParaTelaFinal}>Próxima Etapa</button>
+                <button onClick={this.props.irParaTelaInicial}>Voltar</button>
             </div>
         )
     }
-
 }
 
 export default Etapa2
