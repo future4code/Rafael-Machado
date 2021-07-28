@@ -2,15 +2,64 @@ import axios from 'axios'
 import React from 'react'
 import styled from 'styled-components'
 
+const Container = styled.div`
+    max-width: 370px;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    border: 2px solid aqua;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+
+    h2 {
+        color: #eee;
+        
+    }
+    
+`
+
 const CardUsuario = styled.div`
+    background-color: #444;
+    color: #eee;
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 5px;
     padding: 11px;
     margin: 11px;
-    width: 300px;
-
+    width: auto;
+    font-family: Montserrat;
+    align-items: center;
+    
 `
+const BotaoMudaPagina = styled.button`
+    background-color: aqua;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Montserrat;
+    cursor: pointer;
+    border: none;
+    padding: 0 10px;
+`
+const BotaoX = styled.button`
+background-color: aqua;
+height: 25px;
+/* width: 100%; */
+border-radius: 5px;
+color: #444;
+font-weight: bold;
+font-size: 15px;
+font-family: Montserrat;
+cursor: pointer;
+border: none;
+padding: 0 10px;
+`
+
 // Aqui iniciei a estilização CSS !!!
 
 
@@ -71,22 +120,22 @@ export default class Lista extends React.Component {
         const listaUsuarios = this.state.usuarios.map((user) => {
             return <CardUsuario key={user.id}> 
                         { user.name } 
-                        <button onClick={ () => this.deletarUsuario(user.id) } >X</button>
+                        <BotaoX onClick={ () => this.deletarUsuario(user.id) } >X</BotaoX>
                     </CardUsuario>
         })
 
         return (
-            <div>
+            <Container>
                 <div>
                            
-                    <button onClick={this.props.irParaCadastro}>Ir para Cadastro de Usuário</button>
+                    <BotaoMudaPagina onClick={this.props.irParaCadastro}>Ir para Cadastro de Usuário</BotaoMudaPagina>
                            
                 </div>
 
-                <h2>Lista de Usuários:</h2>
+                <h2>Lista de Usuários</h2>
 
             {listaUsuarios}
-            </div>
+            </Container>
         )
     }
 

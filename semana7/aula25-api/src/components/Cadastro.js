@@ -1,5 +1,60 @@
 import React from 'react'
 import axios from "axios"
+import styled from 'styled-components'
+
+
+const Container = styled.div`
+    max-width: 370px;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    border: 2px solid aqua;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    color: #eee;
+
+    h2 {
+        color: #eee;
+        
+    }
+    
+`
+
+const ContainerButton = styled.div`
+  padding: 10px;
+  margin: 15px 0;
+  
+`
+
+const BotaoMudaPagina = styled.button`
+    background-color: aqua;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Montserrat;
+    cursor: pointer;
+    border: none;
+    padding: 0 10px;
+`
+const BotaoCadastrar = styled.button`
+  background-color: aqua;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Montserrat;
+    cursor: pointer;
+    border: none;
+    padding: 0 10px;
+
+`
+
 
 
 export default class Cadastro extends React.Component {
@@ -51,30 +106,30 @@ export default class Cadastro extends React.Component {
 
     render() {
         return (
-            <div>
-                
-                <p>Nome:</p>
+            <Container>
+                <div>
+                <p>Nome</p>
                 <input
                 placeholder={"Nome"} 
                 value={this.state.inputUsuario}
                 onChange={this.onChangeInputNome} />
                 
-                <p>E-mail:</p>
+                <p>E-mail</p>
                 <input
                 placeholder={"E-mail"}
                 value={this.state.inputEmail}
                 onChange={this.onChangeInputEmail} />
-                
-                <div>
-                <button onClick={this.criarUsuario}>Cadastrar</button>
                 </div>
+                <ContainerButton>
+                <BotaoCadastrar onClick={this.criarUsuario}>Cadastrar</BotaoCadastrar>
+                </ContainerButton>
 
-                <div>
-                <button onClick={this.props.irParaLista}>Ir para Lista de Usuários</button>
-                </div>                
+                <ContainerButton>
+                <BotaoMudaPagina onClick={this.props.irParaLista}>Ir para Lista de Usuários</BotaoMudaPagina>
+                </ContainerButton>                
                 
 
-            </div>
+            </Container>
         )
     }
 

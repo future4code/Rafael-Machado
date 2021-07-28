@@ -4,6 +4,15 @@ import React from 'react'
 import Cadastro from './components/Cadastro';
 import Lista from './components/Lista';
 
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #222;
+    font-family: Montserrat;
+  }
+`
+
 export default class App extends React.Component {
   state = {
     telaAtual: "cadastro"
@@ -32,7 +41,9 @@ export default class App extends React.Component {
   
     render () {
       return (
+        
         <div>
+          <GlobalStyle />
           {this.renderizaTela()}
         </div>
       )
