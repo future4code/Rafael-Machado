@@ -2,23 +2,24 @@ import React from 'react'
 import axios from "axios"
 
 
-class Cadastro extends React.Component {
+export default class Cadastro extends React.Component {
 
- 
     state = {
         inputUsuario: "",
         inputEmail: ""
       }
     
     onChangeInputNome = (e) => {
-        this.setState({ inputUsuario: e.target.value})
+        this.setState({ inputUsuario: e.target.value })
     }
   
     onChangeInputEmail = (e) => {
-      this.setState({ inputEmail: e.target.value})
+      this.setState({ inputEmail: e.target.value })
   }
 
   criarUsuario = () => {
+    // console.log("Cadastro de Usuário - State", this.state)
+    // Console.log no state ... ao apertar botão Cadastrar vemos se são gravadas as informações no ESTADO
     const body = {
       name: this.state.inputUsuario,
       email: this.state.inputEmail
@@ -31,17 +32,20 @@ class Cadastro extends React.Component {
     Authorization: "rafael-machado-lovelace"
   }
 }
-
     axios
       .post(url, body, headers)
       .then((res) => {
+        // console.log("Respostas", res)
         alert("Usuário cadastrado com sucesso")
-        this.props.pegarUsuarios()
-        console.log("Respostas", res)
+        this.setState({ inputUsuario: "", inputEmail: "" })
+        // this.props.pegarUsuarios()
+        
+        
       })
       .catch((err) => {
         alert("Houve um erro. Tente novamente")
-        console.log("Erros", err.response)
+        // console.log("Erros", err.response.data) ... Para encontrar erros.
+        // Para jogar a mensagem de erro que vem do backend ... alert(err.response.data.message)
       })
   }
 
@@ -50,21 +54,23 @@ class Cadastro extends React.Component {
             <div>
                 
                 <p>Nome:</p>
-                <input 
+                <input
+                placeholder={"Nome"} 
                 value={this.state.inputUsuario}
                 onChange={this.onChangeInputNome} />
                 
                 <p>E-mail:</p>
                 <input
+                placeholder={"E-mail"}
                 value={this.state.inputEmail}
                 onChange={this.onChangeInputEmail} />
                 
                 <div>
-                <button onClick={this.criarUsuario}>Salvar</button>
+                <button onClick={this.criarUsuario}>Cadastrar</button>
                 </div>
 
                 <div>
-                <button>Voltar para Lista de Usuários</button>
+                <button onClick={this.props.irParaLista}>Ir para Lista de Usuários</button>
                 </div>                
                 
 
@@ -74,4 +80,3 @@ class Cadastro extends React.Component {
 
 }
 
-export default Cadastro
