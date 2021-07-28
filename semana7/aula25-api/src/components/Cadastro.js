@@ -119,7 +119,7 @@ export default class Cadastro extends React.Component {
         // console.log("Respostas", res)
         alert("Usuário cadastrado com sucesso")
         this.setState({ inputUsuario: "", inputEmail: "" })
-        // this.props.pegarUsuarios()
+        this.props.irParaLista()
         
         
       })
