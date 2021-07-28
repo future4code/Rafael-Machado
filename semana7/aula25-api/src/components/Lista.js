@@ -45,6 +45,11 @@ const BotaoMudaPagina = styled.button`
     cursor: pointer;
     border: none;
     padding: 0 10px;
+
+    &:hover {
+background-color: black;
+color: #eee;
+}
 `
 const BotaoX = styled.button`
 background-color: aqua;
@@ -58,6 +63,11 @@ font-family: Montserrat;
 cursor: pointer;
 border: none;
 padding: 0 10px;
+
+&:hover {
+background-color: black;
+color: #eee;
+}
 `
 
 // Aqui iniciei a estilização CSS !!!

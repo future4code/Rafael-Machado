@@ -6,26 +6,29 @@ import styled from 'styled-components'
 const Container = styled.div`
     max-width: 370px;
     margin: 30px auto;
-    overflow: auto;
-    min-height: 300px;
     border: 2px solid aqua;
     border-radius: 10px;
     padding: 30px;
     text-align: center;
     color: #eee;
 
-    h2 {
-        color: #eee;
         
-    }
-    
 `
 
 const ContainerButton = styled.div`
-  padding: 10px;
-  margin: 15px 0;
+  padding: 7px;
+  margin: 10px 0 10px;
   
 `
+const ContainerInputs = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+`
+
+
 
 const BotaoMudaPagina = styled.button`
     background-color: aqua;
@@ -39,6 +42,11 @@ const BotaoMudaPagina = styled.button`
     cursor: pointer;
     border: none;
     padding: 0 10px;
+
+    &:hover {
+background-color: black;
+color: #eee;
+}
 `
 const BotaoCadastrar = styled.button`
   background-color: aqua;
@@ -52,6 +60,24 @@ const BotaoCadastrar = styled.button`
     cursor: pointer;
     border: none;
     padding: 0 10px;
+
+    &:hover {
+background-color: black;
+color: #eee;
+}
+
+`
+
+const Inputs = styled.input`
+  background-color: #444;
+    color: #eee;
+    border-radius: 5px;
+    padding: 11px;
+    margin: 11px;
+    width: 200px;
+    font-family: Montserrat;
+    align-items: center;
+    border: none;
 
 `
 
@@ -107,19 +133,19 @@ export default class Cadastro extends React.Component {
     render() {
         return (
             <Container>
-                <div>
-                <p>Nome</p>
-                <input
-                placeholder={"Nome"} 
+                <ContainerInputs>
+                <span>Nome</span>
+                <Inputs
+                placeholder={"Digite seu Nome"} 
                 value={this.state.inputUsuario}
                 onChange={this.onChangeInputNome} />
                 
-                <p>E-mail</p>
-                <input
-                placeholder={"E-mail"}
+                <span>E-mail</span>
+                <Inputs
+                placeholder={"Digite seu E-mail"}
                 value={this.state.inputEmail}
                 onChange={this.onChangeInputEmail} />
-                </div>
+                </ContainerInputs>
                 <ContainerButton>
                 <BotaoCadastrar onClick={this.criarUsuario}>Cadastrar</BotaoCadastrar>
                 </ContainerButton>
