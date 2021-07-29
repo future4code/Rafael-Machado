@@ -1,56 +1,101 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React from 'react'
 // import styled from 'styled-components';
 import Cadastro from './components/Cadastro';
 import Lista from './components/Lista';
 
-const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
+import { createGlobalStyle } from 'styled-components'
 
-const headers = {
-  headers: {
-    Authorization: "rafael-machado-lovelace"
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #222;
+    font-family: Montserrat;
   }
-}
+`
 
-class App extends React.Component {
-  
+export default class App extends React.Component {
   state = {
-    usuarios: []
+    telaAtual: "cadastro"
   }
 
-
-  componentDidMount() {
-    this.pegarUsuarios()
+  renderizaTela = () => {
+    switch (this.state.telaAtual) {
+      case "cadastro":
+        return <Cadastro irParaLista={this.irParaLista} />
+      case "lista":
+        return <Lista irParaCadastro={this.irParaCadastro} />
+      default:
+        return <Cadastro irParaLista={this.irParaLista} />    
+    }
   }
+  
 
-  pegarUsuarios = () => {
-    axios
-      .get(url, headers)
-      .then((res) => {
-        this.setState({ usuarios: res.data})
-        console.log("Respostas", res)
-      })
-      .catch((err) => {
-        console.log("Erros", err)
-      })
-  }  
+    irParaCadastro = () => {
+      this.setState({ telaAtual: "cadastro"})
+    }
 
+    irParaLista = () => {
+      this.setState({ telaAtual: "lista"})
+    }
 
-    render() {
-      const componentesUsuarios = this.state.usuarios.map((user) => {
-        return <li key={user.id}> {user.name} </li>
-      })
-      console.log("Estado", this.state.usuarios)
+  
+    render () {
       return (
+        
         <div>
-          <h1>Cadastro de Usuário</h1>
-          <hr />
-          <Cadastro pegarUsuarios={this.pegarUsuarios} />
-          <hr />
-          <Lista />
-          {componentesUsuarios}
+          <GlobalStyle />
+          {this.renderizaTela()}
         </div>
       )
     }
   }
-  export default App;
+
+
+
+
+
+
+
+
+
+
+
+  // state = {
+  //   usuarios: []
+  // }
+
+
+  // componentDidMount() {
+  //   this.pegarUsuarios()
+  // }
+
+  // pegarUsuarios = () => {
+  //   axios
+  //     .get(url, headers)
+  //     .then((res) => {
+  //       this.setState({ usuarios: res.data})
+  //       console.log("Respostas", res)
+  //     })
+  //     .catch((err) => {
+  //       console.log("Erros", err)
+  //     })
+  // }  
+
+
+    // render() {
+    //   const componentesUsuarios = this.state.usuarios.map((user) => {
+    //     return <li key={user.id}> {user.name} </li>
+    //   })
+    //   console.log("Estado", this.state.usuarios)
+    //   return (
+    //     <div>
+    //       <h1>Cadastro de Usuário</h1>
+    //       <hr />
+    //       <Cadastro pegarUsuarios={this.pegarUsuarios} />
+    //       <hr />
+    //       <Lista />
+    //       {componentesUsuarios}
+    //     </div>
+    //   )
+    // }
+ 
