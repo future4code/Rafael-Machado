@@ -7,7 +7,7 @@ const Container = styled.div`
     margin: 30px auto;
     overflow: auto;
     min-height: 300px;
-    border: 2px solid aqua;
+    border: 3px solid #0083D5;
     border-radius: 10px;
     padding: 30px;
     text-align: center;
@@ -35,7 +35,7 @@ const CardUsuario = styled.div`
     
 `
 const BotaoMudaPagina = styled.button`
-    background-color: aqua;
+    background-color: #076EB0;
     height: 40px;
     width: 100%;
     border-radius: 5px;
@@ -48,9 +48,16 @@ const BotaoMudaPagina = styled.button`
     padding: 0 10px;
 
     &:hover {
-background-color: black;
-color: #eee;
+    background-color: #eee;
+    color: #076EB0;
 }
+`
+const LinksContainer = styled.div`
+    
+    a {
+        color: #0083D5;
+        text-decoration: none;
+    }
 `
 
 export default class Missoes extends React.Component {
@@ -85,7 +92,7 @@ export default class Missoes extends React.Component {
         // Usando o MAP
         const missionsList = this.state.missions.map((item) => {
             return (
-                <div key={item.mission_id}>
+                <LinksContainer key={item.mission_id}>
                     <p>Nome: {item.mission_name}</p>
                     <p>Fabricantes: {item.manufacturers.map((manufact) => <p> {manufact} </p>)}
                     </p>
@@ -94,7 +101,7 @@ export default class Missoes extends React.Component {
                     <a href={item.wikipedia} target="_blank">Link para Wikipedia</a>
 
                     <hr/>
-                </div>
+                </LinksContainer>
             )   
         })
 
