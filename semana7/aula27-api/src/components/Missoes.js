@@ -39,7 +39,7 @@ const BotaoMudaPagina = styled.button`
     height: 40px;
     width: 100%;
     border-radius: 5px;
-    color: black;
+    color: white;
     font-weight: bold;
     font-size: 15px;
     font-family: 'Teko', sans-serif;
