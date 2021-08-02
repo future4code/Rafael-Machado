@@ -85,7 +85,8 @@ export default class Lista extends React.Component {
     state = {
         playlists: [],
         playlistId: "",
-        playlistTracks: []
+        playlistTracks: [],
+        playlistName: ""
       }
 
     pegarLista = () => {
@@ -98,7 +99,10 @@ export default class Lista extends React.Component {
     }
         axios.get(url, headers)
         .then((res) => {
-            this.setState({ playlists: res.data.result.list })
+            this.setState({ 
+                playlists: res.data.result.list
+                
+             })
             // console.log("Resposta PLAYLISTS", res.data) // ... Dentro de Data mostra as playlists cadastradas.
         })
         .catch((err) => {
@@ -127,7 +131,7 @@ export default class Lista extends React.Component {
             })
         }
 
-        getPlaylistTracks = async (playlistId) => {
+        getPlaylistTracks = async (playlistId, playlistName) => {
             try {
                     const res = await axios
                             .get(
@@ -137,7 +141,10 @@ export default class Lista extends React.Component {
                                         Authorization: "rafael-machado-lovelace"
                                     }
                                 })
-                            this.setState({ playlistTracks: res.data.result.tracks })
+                            this.setState({ 
+                                playlistTracks: res.data.result.tracks,
+                                playlistName: playlistName
+                            })
         
                     } catch (err) {
                         alert("Algo deu errado!")
@@ -157,7 +164,7 @@ export default class Lista extends React.Component {
                     playlistId={playlist.id} 
                     key={playlist.id}> 
                             
-                        <BotaoPlaylist onClick={() => {this.getPlaylistTracks(playlist.id)}}>
+                        <BotaoPlaylist onClick={() => {this.getPlaylistTracks(playlist.id, playlist.name)}}>
                             { playlist.name }
                         
                         </BotaoPlaylist>
@@ -168,10 +175,17 @@ export default class Lista extends React.Component {
 
         const mostraMusicas = this.state.playlistTracks.map((tracks) => {
             return <CardPlaylist 
+
                 key={tracks.id}> 
+                <div>
+                    <h3>
+                    {this.state.playlistName}
+                    </h3>
                     <p>
                         {tracks.name}
-                    </p>    
+                    </p>
+                </div>
+                        
                     
                 </CardPlaylist>
     })
