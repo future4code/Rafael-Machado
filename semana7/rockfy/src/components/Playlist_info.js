@@ -1,4 +1,4 @@
-import axios from 'axios'
+// import axios from 'axios'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -75,34 +75,61 @@ color: #eee;
 
 export default class PlaylistInfo extends React.Component {
 
-    componentDidMount() {
-        this.pegarLista()
-    }
+    // componentDidMount() {
+    //     this.getPlaylistTracks(playlistId)
+    // }
 
     state = {
-        listaDeMusicas: []
+        tracks: []
       }
 
-    pegarLista = (id) => {
+     
+
+    
+
+    render() {
         
-        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`
+       
+        return (
+            <Container>
+                <div>
+                           
+                    <BotaoMudaPagina onClick={this.props.irParaLista}>Ir para índice de Playlists</BotaoMudaPagina>
+                           
+                </div>
 
-        const headers = {
-            headers: {
-        Authorization: "rafael-machado-lovelace"
-      }
+                <h2>Detalhes da Playlist</h2>
+
+            {/* {montaPlaylists} */}
+            </Container>
+        )
     }
-        axios.get(url, headers)
-        .then((res) => {
-            // this.setState({ playlists: res })
-            console.log("Resposta DETALHES", res) // ... Dentro de Data mostra as playlists cadastradas.
-        })
-        .catch((err) => {
-            // alert("Ooops! Problema! Tente de novo")
+}
+
+
+
+
+
+// mostrarMusicas = (playlistId) => {
+        
+    //     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistId}/tracks`
+
+    //     const headers = {
+    //         headers: {
+    //     Authorization: "rafael-machado-lovelace"
+    //   }
+    // }
+    //     axios.get(url, headers)
+    //     .then((res) => {
+    //         // this.setState({ playlists: res })
+    //         console.log("Resposta DETALHES", res) // ... Dentro de Data mostra as playlists cadastradas.
+    //     })
+    //     .catch((err) => {
+    //         // alert("Ooops! Problema! Tente de novo")
             
-            console.log("Erro", err)    
-        })
-    }
+    //         console.log("Erro", err)    
+    //     })
+    // }
 
         // deletarPlaylist = (id) => {
         //     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
@@ -122,35 +149,4 @@ export default class PlaylistInfo extends React.Component {
         //         alert("Ocorreu um erro. Tente novamente.")
         //     })
         // }
-
-    render() {
-        // Para verificar se os usuários foram gravados no STATE, em then, no setState ({ usuarios: res.data }) 
-        // Nós podemos dar um console.log dentro do render ...
-        // console.log("Array de Playlists", this.state.playlists)
-        // Agora precisamos transformar essa lista de objetos que tem ID e Nome em uma lista de COMPONENTES
-        // Usando o MAP
-
-        // const montaPlaylists = this.state.playlists.map((list) => {
-        //     return <CardPlaylist key={list.id}> 
-        //                 { list.name }
-
-        //                 {/* <BotaoX onClick={ () => this.deletarPlaylist(list.id) } >X</BotaoX> */}
-        //             </CardPlaylist>
-        // })
-
-        return (
-            <Container>
-                <div>
-                           
-                    <BotaoMudaPagina onClick={this.props.irParaLista}>Ir para índice de Playlists</BotaoMudaPagina>
-                           
-                </div>
-
-                <h2>Detalhes da Playlist</h2>
-
-            {/* {montaPlaylists} */}
-            </Container>
-        )
-    }
-}
 

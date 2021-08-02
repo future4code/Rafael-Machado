@@ -79,10 +79,13 @@ export default class Lista extends React.Component {
 
     componentDidMount() {
         this.pegarLista()
+           
     }
 
     state = {
-        playlists: []
+        playlists: [],
+        playlistId: "",
+        playlistTracks: []
       }
 
     pegarLista = () => {
@@ -124,39 +127,87 @@ export default class Lista extends React.Component {
             })
         }
 
+        getPlaylistTracks = async (playlistId) => {
+            try {
+                    const res = await axios
+                            .get(
+                                `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistId}/tracks`,
+                                {
+                                    headers: {
+                                        Authorization: "rafael-machado-lovelace"
+                                    }
+                                })
+                            this.setState({ playlistTracks: res.data.result.tracks })
+        
+                    } catch (err) {
+                        alert("Algo deu errado!")
+                    }
+                }
+
     render() {
+        console.log(this.state.playlistTracks)
         // Para verificar se os usuários foram gravados no STATE, em then, no setState ({ usuarios: res.data }) 
         // Nós podemos dar um console.log dentro do render ...
         // console.log("Array de Playlists", this.state.playlists)
         // Agora precisamos transformar essa lista de objetos que tem ID e Nome em uma lista de COMPONENTES
         // Usando o MAP
 
-        const montaPlaylists = this.state.playlists.map((list) => {
-            return <CardPlaylist id={list.id} key={list.id}> 
+            const montaPlaylists = this.state.playlists.map((playlist) => {
+                return <CardPlaylist 
+                    playlistId={playlist.id} 
+                    key={playlist.id}> 
                             
-                        <BotaoPlaylist onClick={this.props.irParaPlaylistInfo}>
-                            { list.name }
+                        <BotaoPlaylist onClick={() => {this.getPlaylistTracks(playlist.id)}}>
+                            { playlist.name }
                         
                         </BotaoPlaylist>
 
-                        <BotaoX onClick={ () => this.deletarPlaylist(list.id) } >X</BotaoX>
+                        <BotaoX onClick={ () => this.deletarPlaylist(playlist.id) } >X</BotaoX>
                     </CardPlaylist>
         })
+
+        const mostraMusicas = this.state.playlistTracks.map((tracks) => {
+            return <CardPlaylist 
+                key={tracks.id}> 
+                    <p>
+                        {tracks.name}
+                    </p>    
+                    
+                </CardPlaylist>
+    })
+
+        // const tracks = this.state.tracks.map(track => {
+        //     return <TrackCard
+        //         key={track.id}
+        //         trackName={track.name}
+        //         artist={track.artist}
+        //         url={track.url}
+        //         />
+        // })
 
         return (
             <Container>
                 <div>
                            
-                    <BotaoMudaPagina onClick={this.props.irParaCadastro}>Ir para Cadastro de Usuário</BotaoMudaPagina>
+                    <BotaoMudaPagina onClick={this.props.irParaCadastro}>Ir para Cadastro de Playlists</BotaoMudaPagina>
                            
                 </div>
 
                 <h2>Playlists</h2>
 
             {montaPlaylists}
+            {/* {this.state.playlistTracks} */}
+            <hr/>
+            {mostraMusicas}
+            <div>
+
+            </div>
             </Container>
+
         )
     }
 
 }
+
+// onClick={ this.props.irParaPlaylistInfo }
 

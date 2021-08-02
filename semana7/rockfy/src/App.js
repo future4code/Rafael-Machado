@@ -17,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
 
 export default class App extends React.Component {
   state = {
-    telaAtual: "cadastro"
+    telaAtual: "cadastro",
+    playlistId: ""
   }
 
   renderizaTela = () => {
@@ -33,22 +34,23 @@ export default class App extends React.Component {
     }
   }
 
-    irParaDetalhesPlaylist = () => {
-      this.setState({ telaAtual: "detalhes" })
+    irParaDetalhesPlaylist = (telaAtual, playlistId) => {
+      this.setState({ telaAtual: "detalhes", playlistId: playlistId })
     }
     
-    irParaCadastro = () => {
-      this.setState({ telaAtual: "cadastro" })
+    irParaCadastro = (telaAtual, playlistId) => {
+      this.setState({ telaAtual: "cadastro", playlistId: playlistId })
     }
 
-    irParaLista = () => {
-      this.setState({ telaAtual: "lista" })
+    irParaLista = (telaAtual, playlistId) => {
+      this.setState({ telaAtual: "lista", playlistId: playlistId })
     }
 
     
 
   
     render () {
+      // console.log(this.state.playlistId)
       return (
         
         <div>
