@@ -17,18 +17,19 @@ const SecaoComentario = (props) => {
 
 	const onChangeComentario = (event) => {
 		setInputValue(event.target.value)
-		
 	}
-
+	
 	return (
+		
 		<CommentContainer>
+			
 			<InputComment
 				className={'input-comentario'}
 				placeholder={'Comentário'}
-				value={""}
+				value={inputValue}
 				onChange={onChangeComentario}
 			/>
-			<button onClick={() => { props.enviarComentario() }} >Enviar</button>
+			<button onClick={() => { props.enviarComentario(inputValue) }} >Enviar</button>
 		</CommentContainer>
 	)
 }

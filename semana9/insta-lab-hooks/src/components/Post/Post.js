@@ -57,7 +57,7 @@ const Post = (props) => {
     // comentários do estado para serem renderizados na tela, dentro do componente CommentContainer 
     comentarios.map(comentario => {
       return (
-        <CommentContainer>
+        <CommentContainer key={comentario}>
           <p>{comentario}</p>
         </CommentContainer>
       )
