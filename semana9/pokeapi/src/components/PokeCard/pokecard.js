@@ -30,7 +30,7 @@ const PokeCard = (props) => {
           
         <p>{pokemon.name}</p>
         <p>{pokemon.weight} Kg</p>
-        {pokemon.types && <p>{pokemon.types[0].type.name}</p>} // Não entendi essa linha do código
+        {pokemon.types && <p>{pokemon.types[0].type.name}</p>} 
         {pokemon.sprites && (
             
           <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
@@ -40,3 +40,5 @@ const PokeCard = (props) => {
     )
 }
 export default PokeCard
+
+// Não entendi essa linha do código {pokemon.types && <p>{pokemon.types[0].type.name}</p>}
