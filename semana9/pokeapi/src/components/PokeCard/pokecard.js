@@ -5,7 +5,7 @@ import axios from "axios";
 
 const PokeCard = (props) => {
     const [pokemon, setPokemon] = useState({})    
-    // valor do estado que guarda infos e foto do pokemon
+    // valor do estado que guarda infos e foto do pokemon >> OBJETO
     
   const pegaPokemon = (pokeName) => {
     axios
@@ -19,19 +19,18 @@ const PokeCard = (props) => {
         console.log(err);
       });
   };
-
+    // console.log("PROPS", props.nomePokemon)
     useEffect(() => {
-        pegaPokemon(props.pokemon)
-    }, [pokemon])
+        pegaPokemon(props.nomePokemon) // Aqui é como o DidMount -- 
+    }, [props.nomePokemon]) // Aqui é como o DidUpdate
 
-    // console.log(this.state.pokemon)
-    // const pokemon = this.state.pokemon; <<<<<<<<<<<<
+    
     return (    
       <div>
           
         <p>{pokemon.name}</p>
         <p>{pokemon.weight} Kg</p>
-        {pokemon.types && <p>{pokemon.types[0].type.name}</p>}
+        {pokemon.types && <p>{pokemon.types[0].type.name}</p>} // Não entendi essa linha do código
         {pokemon.sprites && (
             
           <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />

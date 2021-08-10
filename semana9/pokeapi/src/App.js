@@ -47,7 +47,7 @@ const App = (props) => {
         </select>
         {/* expressão booleana que renderiza o componente PokeCard,
         caso o valor de pokeName, no estado, seja true */}
-        {pokeName && <PokeCard pokemon={pokeName} />}
+        {pokeName && <PokeCard nomePokemon={pokeName} />}
         
       </AppContainer>
     )  
