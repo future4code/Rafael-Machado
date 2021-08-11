@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react"
 import axios from "axios";
-// import { Photo } from "./styles";
+import { Photo } from "./styles";
+import styled from "styled-components"
 
 const PokeCard = (props) => {
     const [pokemon, setPokemon] = useState({})    
@@ -24,7 +25,8 @@ const PokeCard = (props) => {
         pegaPokemon(props.nomePokemon) // Aqui é como o DidMount -- 
     }, [props.nomePokemon]) // Aqui é como o DidUpdate
 
-    
+   
+    // console.log(pokemon)
     return (    
       <div>
           
@@ -33,7 +35,7 @@ const PokeCard = (props) => {
         {pokemon.types && <p>{pokemon.types[0].type.name}</p>} 
         {pokemon.sprites && (
             
-          <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
+          <Photo src={pokemon.sprites.front_shiny} alt={pokemon.name} />
           
         )}   
       </div>
@@ -41,4 +43,3 @@ const PokeCard = (props) => {
 }
 export default PokeCard
 
-// Não entendi essa linha do código {pokemon.types && <p>{pokemon.types[0].type.name}</p>}
