@@ -1,10 +1,29 @@
+import axios from 'axios'
 import React from 'react'
 import { useEffect, useState } from "react"
 import logo from "../img/logo.png"
-import { ContainerLogo, ContainerTelaInicial } from './styles'
+import { ContainerLogo, ContainerTelaInicial, FotoPessoa, ContainerFoto } from './styles'
 
 
 const TelaInicial = (props) => {
+    const [pessoa, setPessoa] = useState({})
+
+    const pegaPessoa = () => {
+        axios
+        .get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person")
+        .then((res) => {
+            console.log(res.data.profile)
+            setPessoa(res.data.profile)
+            
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+
+    useEffect(() => {
+        pegaPessoa()
+    }, [])
 
 
     return (
@@ -21,9 +40,9 @@ const TelaInicial = (props) => {
             </header>
             
             
-            <div>
-                FOTO IMPORTADA API
-            </div>
+            <ContainerFoto>
+                <FotoPessoa src={pessoa.photo} />
+            </ContainerFoto>
 
             <div> 
                 <button>DISLIKE</button> 
