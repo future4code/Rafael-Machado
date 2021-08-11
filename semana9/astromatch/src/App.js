@@ -2,6 +2,17 @@ import React from 'react'
 import { useEffect, useState } from "react"
 import TelaInicial from "./components/telaInicial"
 import TelaMatches from "./components/telaMatches"
+import { ContainerApp, ButtonClear } from "./components/styles"
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: lightgrey;
+    font-family: Montserrat;
+    box-sizing: border-box;
+    
+  }
+`
 
 const App = (props) => {
   const [telaAtual, setTelaAtual] = useState("inicial")
@@ -30,9 +41,15 @@ const App = (props) => {
   }
   
   return (
-    <div>
+    <ContainerApp>
+      <GlobalStyle />
       {trocaTela()}
-    </div>
+      
+      <ButtonClear>Limpar swipes e matches</ButtonClear>
+      
+
+    </ContainerApp>
+    
   )
 
 }
