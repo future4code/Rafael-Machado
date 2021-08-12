@@ -2,11 +2,12 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect, useState } from "react"
 import logo from "../img/logo.png"
-import { ContainerLogo, ContainerTelaInicial, FotoPessoa, ContainerFoto, Container2Botoes } from './styles'
+import { ContainerLogo, ContainerTelaInicial, FotoPessoa, 
+    ContainerFoto, Container2Botoes, Nome, Bio } from './styles'
 
 const TelaInicial = (props) => {
     const [pessoa, setPessoa] = useState({})
-    // console.log(pessoa.id)
+    console.log("OBJETO", pessoa)
 
     const pegaPessoa = () => {
         axios
@@ -69,11 +70,17 @@ const TelaInicial = (props) => {
             
             <ContainerFoto>
                 <FotoPessoa src={pessoa.photo} />
+                
             </ContainerFoto>
+            {/* Caixa de texto com borda arredondada - cor clara */}
+            
+            <Nome>{pessoa.name}, {pessoa.age}</Nome>
+            <Bio>{pessoa.bio}</Bio>
+            
 
             <Container2Botoes> 
                 <button onClick={matchNao}>NÃO</button> 
-                <button onClick={matchSim}>DEU MATCH</button> 
+                <button onClick={matchSim}>SIM</button> 
             </Container2Botoes>
             
         </ContainerTelaInicial>

@@ -42,7 +42,8 @@ export const ContainerFoto = styled.div`
 
 export const FotoPessoa = styled.img`
     height: 350px;
-    width: 350px;     
+    width: 350px;
+    border-radius: 5px;
 `
 
 export const Container2Botoes = styled.div`
@@ -50,16 +51,40 @@ export const Container2Botoes = styled.div`
     justify-content: space-around;
 `
 
+export const Nome = styled.div`
+    font-size: 21px;
+    font-weight: bold;
+    color: #f1eff2;
+    margin-left: 30px;
+    margin-top: 340px;
+    position: absolute;
+`
+
+export const Bio = styled.div`
+    font-size: 15px;
+    font-family: Verdana;
+    color: #f1eff2;
+    margin-left: 30px;
+    margin-top: 365px;
+    position: absolute;
+    width: 340px;
+    /* background-color: lightgrey; */
+    
+`
+
+
+
+
 // COMPONENTE - APP
 
 export const ContainerApp = styled.div`
     display: flex;
     flex-direction: column;
-     
+    align-items: center;
+    
 `
 
 export const ButtonClear = styled.button`
-    /* align-self: center; */
     width: 200px;
 `
 
