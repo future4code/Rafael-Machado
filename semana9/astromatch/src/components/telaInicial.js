@@ -59,12 +59,11 @@ const TelaInicial = (props) => {
             <header>
             <ContainerLogo>
             <img src={logo} alt="Logo da AstroMatch" />
-            <button onClick={props.vaiParaTelaMatches}>Lista</button>
+            <span class="material-icons" onClick={props.vaiParaTelaMatches}>
+            double_arrow
+            </span>
+            {/* <button onClick={props.vaiParaTelaMatches}>Lista</button> */}
             </ContainerLogo>
-
-            <div>
-                
-            </div>
             </header>
             
             

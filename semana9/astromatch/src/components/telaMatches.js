@@ -40,7 +40,10 @@ const TelaMatches = (props) => {
             <header>
             <ContainerHeader>
             <img src={logo} alt="Logo da AstroMatch" />
-            <button onClick={props.vaiParaTelaInicial}>VOLTAR</button>
+            <span class="material-icons" onClick={props.vaiParaTelaInicial}>
+            home
+            </span>
+            
             </ContainerHeader>
 
             <div>

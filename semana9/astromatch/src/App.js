@@ -8,7 +8,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: lightgrey;
+    background-color: #222;
     font-family: Montserrat;
     box-sizing: border-box;
     

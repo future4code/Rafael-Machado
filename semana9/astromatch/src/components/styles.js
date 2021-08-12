@@ -6,28 +6,34 @@ export const ContainerTelaInicial = styled.div`
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 7px solid #f1eff2;
+    border-radius: 5px;
     height: 90vh;
     width: 400px;
     margin: 10px auto;
-    background-color: white;
+    background-color: #222;
 `
 
 export const ContainerLogo = styled.div`
     display: flex;
     justify-content: space-evenly;
+    background-color: white;
+    border-radius: 1px;
 
     img {
         width: 150px;
     }
 
-    button {
-        width: 50px;
-        height: 30px;
-        margin: 10px;
+    span {
+        /* width: 50px;
+        height: 50px; */
+        margin: 15px;
+        cursor: pointer;
+        color: #222;
         
     }
 `
+
 export const ContainerFoto = styled.div`
     display: flex;
     justify-content: center;
@@ -62,18 +68,21 @@ export const ButtonClear = styled.button`
 export const ContainerHeader = styled.div`
     display: flex;
     justify-content: space-evenly;
+    background-color: white;
        
 
     img {
         width: 150px;
     }
 
-    button {
-        width: 70px;
-        height: 30px;
-        margin: 10px;
-        
+    span {
+        /* width: 10px;
+        height: 10px; */
+        margin: 15px;
+        cursor: pointer;
+        color: #222;
     }
+
 `
 export const FotoPeq = styled.img`
     /* height: 50px; */
@@ -87,7 +96,8 @@ export const FotoENome = styled.div`
     justify-content: left;
 
     p {
-        margin-left: 15px;;
+        margin-left: 15px;
+        color: #f1eff2;
     }
 `
 
