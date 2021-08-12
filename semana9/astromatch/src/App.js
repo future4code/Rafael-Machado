@@ -1,5 +1,6 @@
 import React from 'react'
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import axios from 'axios'
 import TelaInicial from "./components/telaInicial"
 import TelaMatches from "./components/telaMatches"
 import { ContainerApp, ButtonClear } from "./components/styles"
@@ -13,11 +14,9 @@ const GlobalStyle = createGlobalStyle`
     
   }
 `
-
 const App = (props) => {
   const [telaAtual, setTelaAtual] = useState("inicial")
-  const [idPessoaClicada, setIdPessoaClicada] = useState("")
-
+  
   const vaiParaTelaMatches = () => {
     setTelaAtual("matches")
   }
@@ -39,13 +38,26 @@ const App = (props) => {
     }
 
   }
+
+  const apagaLista = () => {
+    axios
+    .put("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:rafael-mach/clear")
+    .then((res) => {
+        console.log(res)
+        // setPessoa(res.data.profile)
+           
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+}
   
   return (
     <ContainerApp>
       <GlobalStyle />
       {trocaTela()}
       
-      <ButtonClear>Limpar swipes e matches</ButtonClear>
+      <ButtonClear onClick={apagaLista}>Limpar swipes e matches</ButtonClear>
       
 
     </ContainerApp>
@@ -54,6 +66,4 @@ const App = (props) => {
 
 }
   
-
-
 export default App

@@ -13,7 +13,6 @@ export const ContainerTelaInicial = styled.div`
     background-color: white;
 `
 
-
 export const ContainerLogo = styled.div`
     display: flex;
     justify-content: space-evenly;
@@ -37,8 +36,12 @@ export const ContainerFoto = styled.div`
 
 export const FotoPessoa = styled.img`
     height: 350px;
+    width: 350px;     
+`
 
-        
+export const Container2Botoes = styled.div`
+    display: flex;
+    justify-content: space-around;
 `
 
 // COMPONENTE - APP
@@ -52,5 +55,40 @@ export const ContainerApp = styled.div`
 export const ButtonClear = styled.button`
     /* align-self: center; */
     width: 200px;
-    
 `
+
+// COMPONENTE- TELA MATCHES
+
+export const ContainerHeader = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+       
+
+    img {
+        width: 150px;
+    }
+
+    button {
+        width: 70px;
+        height: 30px;
+        margin: 10px;
+        
+    }
+`
+export const FotoPeq = styled.img`
+    /* height: 50px; */
+    width: 40px;
+    border-radius: 20% ;
+`
+export const FotoENome = styled.div`
+    display: flex;
+    margin: 15px 10px;
+    padding: 5px;
+    justify-content: left;
+
+    p {
+        margin-left: 15px;;
+    }
+`
+
+
