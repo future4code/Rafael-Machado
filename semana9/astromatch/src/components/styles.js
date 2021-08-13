@@ -24,14 +24,15 @@ export const ContainerLogo = styled.div`
         width: 150px;
     }
 
-    span {
-        /* width: 50px;
-        height: 50px; */
-        margin: 15px;
+    /* span {
+        width: 2.25rem;
+        height: 2.25rem;
+        margin: 10px;
         cursor: pointer;
-        color: #222;
+        color: #5D001E;
         
-    }
+        
+    } */
 `
 
 export const ContainerFoto = styled.div`
@@ -49,6 +50,7 @@ export const FotoPessoa = styled.img`
 export const Container2Botoes = styled.div`
     display: flex;
     justify-content: space-around;
+    font-size: 30px;
 `
 
 export const Nome = styled.div`
@@ -84,9 +86,6 @@ export const ContainerApp = styled.div`
     
 `
 
-export const ButtonClear = styled.button`
-    width: 200px;
-`
 
 // COMPONENTE- TELA MATCHES
 

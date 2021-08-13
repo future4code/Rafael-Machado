@@ -3,8 +3,11 @@ import { useState } from "react"
 import axios from 'axios'
 import TelaInicial from "./components/telaInicial"
 import TelaMatches from "./components/telaMatches"
-import { ContainerApp, ButtonClear } from "./components/styles"
+import { ContainerApp} from "./components/styles"
 import { createGlobalStyle } from 'styled-components'
+import Button from '@material-ui/core/Button';
+
+
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
     
   }
 `
-const App = (props) => {
+
+const App = () => {
   const [telaAtual, setTelaAtual] = useState("inicial")
   
   const vaiParaTelaMatches = () => {
@@ -51,14 +55,25 @@ const App = (props) => {
         console.log(error)
     })
 }
+
+const style = {
+  background: 'linear-gradient(45deg, #5D001E 30%, #501F3A 90%)',
+  borderRadius: 3,
+  border: 0,
+  color: 'white',
+  height: 27,
+  padding: '0 25px',
+}
   
   return (
     <ContainerApp>
       <GlobalStyle />
       {trocaTela()}
       
-      <ButtonClear onClick={apagaLista}>Limpar swipes e matches</ButtonClear>
-      
+      {/* <ButtonClear onClick={apagaLista}>Limpar swipes e matches</ButtonClear> */}
+      <Button onClick={apagaLista} variant="outlined" size="small" style={style}>
+      LIMPAR MATCHES
+    </Button>
 
     </ContainerApp>
     
