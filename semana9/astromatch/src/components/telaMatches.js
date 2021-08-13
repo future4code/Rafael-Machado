@@ -2,11 +2,11 @@ import React from 'react'
 import { useEffect, useState } from "react"
 import axios from "axios"
 import logo from "../img/logo.png"
-import { ContainerTelaInicial, ContainerHeader, FotoPeq, FotoENome } from './styles'
+import { ContainerTelaInicial, ContainerHeader, FotoPeq, FotoENome, styleBotaoHome } from './styles'
+import Button from '@material-ui/core/Button'
 
 const TelaMatches = (props) => {
     const [listaMatches, setlistaMatches] = useState([])
-    console.log(listaMatches)
 
     const salvaMatches = () => {
         axios
@@ -34,35 +34,27 @@ const TelaMatches = (props) => {
             </FotoENome>
             )
         })
-    
+
     return (
         <ContainerTelaInicial>
             <header>
             <ContainerHeader>
             <img src={logo} alt="Logo da AstroMatch" />
-            <span class="material-icons" onClick={props.vaiParaTelaInicial}>
-            home
-            </span>
+
+            <Button onClick={props.vaiParaTelaInicial} variant="contained" color="primary" 
+            size="small" style={styleBotaoHome} >
+            HOME <p>&nbsp; &nbsp; &#127922;</p>
+            </Button>
             
             </ContainerHeader>
 
-            <div>
-                
-            </div>
             </header>
-            
-
             
             <div>
                 {novaLista}
             </div>
-
-            
-            
+ 
         </ContainerTelaInicial>
-
     )
-
-
 }
 export default TelaMatches

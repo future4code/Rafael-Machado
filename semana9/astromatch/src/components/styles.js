@@ -10,29 +10,21 @@ export const ContainerTelaInicial = styled.div`
     border-radius: 5px;
     height: 90vh;
     width: 400px;
-    margin: 10px auto;
+    margin: 15px auto;
     background-color: #222;
 `
 
 export const ContainerLogo = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     background-color: white;
     border-radius: 1px;
 
     img {
         width: 150px;
+        /* margin-right: 20px; */
     }
 
-    /* span {
-        width: 2.25rem;
-        height: 2.25rem;
-        margin: 10px;
-        cursor: pointer;
-        color: #5D001E;
-        
-        
-    } */
 `
 
 export const ContainerFoto = styled.div`
@@ -42,7 +34,8 @@ export const ContainerFoto = styled.div`
 `
 
 export const FotoPessoa = styled.img`
-    height: 350px;
+    margin-top: 10px;
+    height: 405px;
     width: 350px;
     border-radius: 5px;
 `
@@ -58,7 +51,7 @@ export const Nome = styled.div`
     font-weight: bold;
     color: #f1eff2;
     margin-left: 30px;
-    margin-top: 340px;
+    margin-top: 380px;
     position: absolute;
 `
 
@@ -67,15 +60,12 @@ export const Bio = styled.div`
     font-family: Verdana;
     color: #f1eff2;
     margin-left: 30px;
-    margin-top: 365px;
+    margin-top: 410px;
     position: absolute;
     width: 340px;
     /* background-color: lightgrey; */
     
 `
-
-
-
 
 // COMPONENTE - APP
 
@@ -91,20 +81,13 @@ export const ContainerApp = styled.div`
 
 export const ContainerHeader = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     background-color: white;
-       
+    border-radius: 1px;
 
     img {
         width: 150px;
-    }
-
-    span {
-        /* width: 10px;
-        height: 10px; */
-        margin: 15px;
-        cursor: pointer;
-        color: #222;
+        /* margin-right: 20px; */
     }
 
 `
@@ -124,5 +107,63 @@ export const FotoENome = styled.div`
         color: #f1eff2;
     }
 `
+
+// Estilização dos Botões - Material UI
+
+export const styleBotaoApaga = {
+    background: 'linear-gradient(45deg, #5D001E 30%, #501F3A 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 27,
+    padding: '0 25px',
+  }
+
+export const styleInicial = {
+    background: '#5D001E',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 30,
+    width: 120,
+    padding: '5px 1px',
+    margin: '10px',
+  }
+
+  export const botaoSim = {
+    background: '#0ca045',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 37,
+    width: 110,
+    padding: '5px 1px',
+    margin: '5px',
+  }
+
+  export const botaoNao = {
+    background: '#ea0e0e',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 37,
+    width: 110,
+    padding: '5px 1px',
+    margin: '5px',
+    // fontSize: 17, <<<<<
+  }
+
+  export const styleBotaoHome = {
+    background: '#5D001E',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 30,
+    width: 120,
+    padding: '5px 1px',
+    margin: '10px',
+  }
+
+
 
 
