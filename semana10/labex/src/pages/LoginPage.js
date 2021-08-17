@@ -3,7 +3,7 @@
 const LoginPage = () => {
     return (
         <div>
-            <p>LabeX - LoginPage</p>
+            <p><b>PÁGINA DE LOGIN - LoginPage</b></p>
         </div>
 
       )

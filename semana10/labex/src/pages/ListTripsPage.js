@@ -1,9 +1,20 @@
+import { useHistory } from "react-router-dom"
 
 
 const ListTripsPage = () => {
+    const history = useHistory()
+
+    const goToApplicationFormPage = () => {
+        history.push("/trips/application")
+    }
+
+
+
     return (
         <div>
-            <p>LabeX - ListTripsPage</p>
+            <p>Lista de Viagens - ListTripsPage</p>
+            <button> Voltar </button>
+            <button onClick={goToApplicationFormPage}> Inscrever-se </button>
         </div>
 
       )
