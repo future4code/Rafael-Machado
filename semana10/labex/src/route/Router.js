@@ -1,10 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { createGlobalStyle } from "styled-components"
+import AdminHomePage from '../pages/AdminHomePage'
 import ApplicationFormPage from '../pages/ApplicationFormPage'
+import CreateTripPage from '../pages/CreateTripPage'
 import HomePage from '../pages/HomePage'
 import ListTripsPage from '../pages/ListTripsPage'
 import LoginPage from '../pages/LoginPage'
+import TripDetailsPage from '../pages/TripDetailsPage'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -33,15 +36,25 @@ const Router = () => {
                     <ListTripsPage />    
                 </Route>
 
-                <Route exact path={"/login"}>
-                    <LoginPage />    
-                </Route>
-
                 <Route exact path={"/trips/application"}>
                     <ApplicationFormPage />    
                 </Route>
 
+                <Route exact path={"/login"}>
+                    <LoginPage />    
+                </Route>
 
+                <Route exact path={"/admin/trips/list"}>
+                    <AdminHomePage />    
+                </Route>
+
+                <Route exact path={"/admin/trips/create"}>
+                    <CreateTripPage />    
+                </Route>
+
+                <Route exact path={"/admin/trips/:id"}>
+                    <TripDetailsPage />    
+                </Route>
 
             
             
