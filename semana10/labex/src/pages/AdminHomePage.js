@@ -1,4 +1,5 @@
 import { useHistory } from "react-router"
+// import TripDetailsPage from "./TripDetailsPage"
 
 const AdminHomePage = () => {
     const history = useHistory()
@@ -7,8 +8,10 @@ const AdminHomePage = () => {
         history.push("/admin/trips/create")
     }
 
-    const goToTripDetailsPage = () => {
-        history.push("/admin/trips/:id")
+    const logout = () => {
+        localStorage.setItem("token", null)
+        alert("Você fez Logout")
+        console.log(localStorage)
     }
 
     return (
@@ -19,8 +22,8 @@ const AdminHomePage = () => {
 
             <button onClick={history.goBack}> Voltar </button>
             <button onClick={goToCreateTripPage}> Criar Viagem </button>
-            <button onClick={goToTripDetailsPage}> Provisório - Ir para Detalhes da Viagem </button>
-            <button> Logout </button>
+            <button onClick={logout}> Logout </button>
+            {/* <TripDetailsPage /> */}
         </div>
 
       )
