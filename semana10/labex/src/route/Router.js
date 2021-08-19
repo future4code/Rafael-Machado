@@ -56,8 +56,10 @@ const Router = () => {
                     <TripDetailsPage />    
                 </Route>
 
-            
-            
+                <Route>
+                    <div> Página não encontrada </div>    
+                </Route>
+
             </Switch>
             </BrowserRouter>
         </div>

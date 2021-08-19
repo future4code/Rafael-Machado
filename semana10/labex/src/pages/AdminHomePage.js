@@ -1,14 +1,17 @@
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import axios from "axios"
 import { useEffect } from "react"
 import { useState } from "react"
-import { BotaoDetalheViagem } from "./styles.AdminHomePage"
+import { BotaoDetalheViagem, ContainerListaViagens, 
+ContainerAdminHomePage, MenuBotoes } from "./styles.AdminHomePage"
+import { useProtectedPage } from "../hooks/hooks"
 
 const AdminHomePage = () => {
     const [listTrips, setListTrips] = useState([])
 
+    useProtectedPage()
+
     const history = useHistory()
-    
     
     const goToCreateTripPage = () => {
         history.push("/admin/trips/create")
@@ -24,43 +27,70 @@ const AdminHomePage = () => {
         console.log(localStorage)
     }
 
-    useEffect(() => {
+    const getTrips = () => {
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-machado-lovelace/trips"
                 
         axios.get(url)
 
         .then((response) => {
-            console.log("LISTA DE VIAGENS", response.data.trips)
+            // console.log("LISTA DE VIAGENS", response.data.trips)
             setListTrips(response.data.trips)
         })
 
         .catch ((error) => {
             console.log("DEU ERRO !!!", error.response)
         })
+    }
+
+    useEffect(() => {
+        getTrips()
     }, [])
+
+
+    const deleteTrip = (id) => {
+    
+        const token = localStorage.getItem("token")
+
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-machado-lovelace/trips/${id}`
+                     
+        axios.delete(url, 
+            {
+            headers: {
+              auth: token
+            }
+          })
+        .then((response) => {
+            alert("A viagem foi deletada com sucesso")
+            getTrips()
+            
+        }).catch ((error) => {
+            console.log("DEU ERRO AO DELETAR !!!", error.response)
+        })
+    }
 
     const newListTrips = listTrips.map((trip) => {
         return (
-            <div>
+            <ContainerListaViagens key={trip.id}>
             <BotaoDetalheViagem onClick={() => goToTripDetailsPage(trip.id)}>{trip.name}</BotaoDetalheViagem>
-            <button> Deletar </button>
-            </div>
+            <button onClick={() => deleteTrip(trip.id)}> Deletar </button>
+            </ContainerListaViagens>
         )
     })
 
     return (
-        <div>
+        <ContainerAdminHomePage>
             <p>AdminHomePage</p>
             <strong>Painel Administrativo</strong>
             <p>Para o administrador ver a lista de viagens e poder
                  deletá-las ou acessar o detalhe de cada uma delas </p>
-
+        <MenuBotoes>
             <button onClick={history.goBack}> Voltar </button>
             <button onClick={goToCreateTripPage}> Criar Viagem </button>
             <button onClick={logout}> Logout </button>
+        </MenuBotoes>
             {newListTrips}
             
-        </div>
+        </ContainerAdminHomePage>
 
       )
 }

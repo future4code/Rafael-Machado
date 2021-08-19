@@ -1,8 +1,10 @@
 import { useHistory } from "react-router-dom"
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 const ListTripsPage = () => {
+    const [trips, setTrips] = useState([])
+    console.log("VIAGENS", trips)
     const history = useHistory()
 
     const goToApplicationFormPage = () => {
@@ -15,7 +17,8 @@ const ListTripsPage = () => {
         axios.get(url)
 
         .then((response) => {
-            console.log("Deu certo!", response.data.trips)
+            console.log("Deu certo!")
+            setTrips(response.data.trips)
         })
 
         .catch ((error) => {
@@ -23,16 +26,26 @@ const ListTripsPage = () => {
         })
     }, [])
 
-
+    const allTrips = trips.map((trips) => {
+        return (
+            <div key={trips.id}>
+                <h3>{trips.name}</h3>
+                <p>Descrição: {trips.description} </p>
+                <p>Planeta: {trips.planet} </p>
+                <p>Duração: {trips.durationInDays} </p>
+                <p>Data: {trips.date} </p>
+            </div>
+        )
+    })
  
-
-
-
     return (
         <div>
             <p>Lista de Viagens - ListTripsPage</p>
+
             <button onClick={history.goBack}> Voltar </button>
             <button onClick={goToApplicationFormPage}> Inscrever-se </button>
+
+            {allTrips}
         </div>
 
       )

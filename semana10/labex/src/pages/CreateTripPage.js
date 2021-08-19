@@ -1,7 +1,10 @@
 import { useHistory } from "react-router-dom"
+import { useProtectedPage } from "../hooks/hooks"
 
 const CreateTripPage = () => {
     const history = useHistory()
+
+    useProtectedPage()
 
     return (
         <div>
