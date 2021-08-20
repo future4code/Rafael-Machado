@@ -1,4 +1,4 @@
-import { useHistory, useParams } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import axios from "axios"
 import { useEffect } from "react"
 import { useState } from "react"
@@ -23,8 +23,9 @@ const AdminHomePage = () => {
 
     const logout = () => {
         localStorage.setItem("token", null)
-        alert("Você fez Logout")
-        console.log(localStorage)
+        alert("Você fez Logout com sucesso")
+        history.push("/")
+        
     }
 
     const getTrips = () => {
@@ -38,7 +39,7 @@ const AdminHomePage = () => {
         })
 
         .catch ((error) => {
-            console.log("DEU ERRO !!!", error.response)
+            alert("DEU ERRO !!!", error.response)
         })
     }
 

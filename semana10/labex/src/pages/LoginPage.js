@@ -3,36 +3,34 @@ import { useState } from "react"
 import axios from "axios"
 
 const LoginPage = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-
+    const [form, setForm] = useState({email: "", password: ""})
+    
     const history = useHistory()
 
-    const onChangeEmail = (event) => {
-        setEmail(event.target.value)
+    const onChange = (event) => {
+        const { name, value } = event.target
+        setForm({ ...form, [name]: value })
     }
 
-    const onChangePassword = (event) => {
-        setPassword(event.target.value)
-    }
+    // Abaixo formato mais extenso de se escrever a função onChange
+    // const onChange = (event) => {
+    //     setForm({...form, [event.target.name]: event.target.value})
+    // }
 
-    const onSubmitLogin = () => {
-        console.log(email, password)
-
+    const onSubmitLogin = (event) => {
+       
+        event.preventDefault() // <<<<<<<<<<
+        
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-machado-lovelace/login"
-        const body = {
-            email: email,
-            password: password
-        }
+        
 
-        axios.post(url, body)
+        axios.post(url, form)
             .then((response) => {
-                console.log("Deu certo", response.data.token)
                 localStorage.setItem("token", response.data.token) // <<<<< localStorage
                 history.push("/admin/trips/list")
 
             }).catch((error) => {
-                console.log("Deu merda!!!", error.response)
+                alert("Erro! Email ou senha podem estar incorretos!" , error.response)
             })
 
     }
@@ -40,24 +38,34 @@ const LoginPage = () => {
     return (
         <div>
             <p><b>PÁGINA DE LOGIN - LoginPage</b></p>
-            
+
+        <form onSubmit={onSubmitLogin}> {/* <<<<< // */}
+        
         <input
+            name={"email"}
             placeholder="email"
             type="email"
-            value={email}
-            onChange={onChangeEmail}
+            value={form.email}
+            onChange={onChange}
+            required
             />
-        <input 
-        placeholder="password"
-        type="password"
-        value={password}
-        onChange={onChangePassword}
-        />
+        <input
+            name={"password"} 
+            placeholder="senha"
+            type="password"
+            value={form.password}
+            onChange={onChange}
+            required
+            pattern={"^.{5,}"}
+            title={"Sua senha deve ter no mínimo 5 caracteres"}
+            />
 
-            <button onClick={history.goBack}> Voltar </button>
-            <button onClick={onSubmitLogin}> Entrar </button>
+            <button> Entrar </button> {/* <<<<< // */}
+            
+        </form>
+        <button onClick={history.goBack}> Voltar </button>
+        
         </div>
-
       )
 }
  

@@ -7,15 +7,15 @@ const TripDetailsPage = () => {
     const [trip, setTrip] = useState({})
     const [candidates, setCandidates] = useState([])
     const [approved, setApproved] = useState([])
-    // console.log("CANDIDATOS APROVADOS", approved)
+    console.log("CANDIDATOS APROVADOS", approved)
 
     const history = useHistory()
 
     useProtectedPage()
 
     const params = useParams()
-    
-    useEffect(() => {
+
+    const getTripDetail = () => {
         const token = localStorage.getItem("token")
 
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-machado-lovelace/trip/${params.id}`
@@ -27,7 +27,7 @@ const TripDetailsPage = () => {
             }
           })
         .then((response) => {
-            console.log("FOI! TRIP DETAILS", response.data.trip)
+            // console.log("FOI! TRIP DETAILS", response.data.trip)
             setTrip(response.data.trip)
             setCandidates(response.data.trip.candidates)
             setApproved(response.data.trip.approved)
@@ -35,6 +35,10 @@ const TripDetailsPage = () => {
         }).catch ((error) => {
             console.log("DEU ERRO !!!", error.response)
         })
+    }
+    
+    useEffect(() => {
+        getTripDetail()
     }, [])
 
     const decideCandidate = (candidateId, choice) => {
@@ -56,24 +60,13 @@ const TripDetailsPage = () => {
           })
         .then((response) => {
             console.log("FOI! DECIDE CANDIDATES", response)
-            
+            getTripDetail()
 
         }).catch ((error) => {
-            console.log("DEU ERRO - DECIDE-CANDIDATE !!!", error.response)
+            alert("DEU ERRO - DECIDE-CANDIDATE !!!", error.response)
         })
-
     }
-
-    // const setApproved = () => {
-    //     decideCandidate(candidateId, true)
-    // }
-
-    // const setNotApproved = () => {
-    //     decideCandidate(false, candidateId)
-    // }
-    
-    
-        
+ 
         const newCandidates = candidates.map((person) => {
             return (
                 <div key={person.id}>
@@ -84,20 +77,22 @@ const TripDetailsPage = () => {
                     <p>Texto de Candidatura: {person.applicationText}</p>
 
                     <button onClick={() => decideCandidate(person.id, true)}> Aprovar </button>
-                    <button> Reprovar </button>
+                    <button onClick={() => decideCandidate(person.id, false)}> Reprovar </button>
                 </div>
             )
         })
 
-        // MAP dos candidatos aprovados 
-        // const newApproved = approved.map((approvedPerson) => {
-        //     return (
-        //         <div>
-        //             <p>{approvedPerson.name}</p>
-        //         </div>
-        //     )
-        // })
-
+        const newApproved = approved.map((approvedPerson) => {
+            return (
+                <div>
+                    <p>Nome: {approvedPerson.name}</p>
+                    <p>Profissão: {approvedPerson.profession}</p>
+                    <p>Idade: {approvedPerson.age}</p>
+                    <p>País: {approvedPerson.country}</p>
+                    <p>Texto de Candidatura: {approvedPerson.applicationText}</p>
+                </div>
+            )
+        })
 
     return (
         <div>
@@ -116,9 +111,9 @@ const TripDetailsPage = () => {
             {newCandidates}
 
             <h2>Candidatos Aprovados</h2>
+            {newApproved}
 
         </div>
-
       )
 }
 export default TripDetailsPage
