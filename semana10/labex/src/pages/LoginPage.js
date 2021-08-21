@@ -1,18 +1,19 @@
 import { useHistory } from "react-router-dom"
-import { useState } from "react"
 import axios from "axios"
+import { useForm } from "../hooks/hooks"
 
 const LoginPage = () => {
-    const [form, setForm] = useState({email: "", password: ""})
+    const {form, onChange, clearFields} = useForm({email: "", password: ""})
+    // const [form, setForm] = useState({email: "", password: ""})  <<<< Sem CUSTOM HOOK
     
     const history = useHistory()
 
-    const onChange = (event) => {
-        const { name, value } = event.target
-        setForm({ ...form, [name]: value })
-    }
+    // const onChange = (event) => {             <<<< Sem CUSTOM HOOK
+    //     const { name, value } = event.target
+    //     setForm({ ...form, [name]: value })
+    // }
 
-    // Abaixo formato mais extenso de se escrever a função onChange
+    // Abaixo formato mais extenso de se escrever a função onChange   <<<< Sem CUSTOM HOOK
     // const onChange = (event) => {
     //     setForm({...form, [event.target.name]: event.target.value})
     // }
@@ -27,6 +28,7 @@ const LoginPage = () => {
         axios.post(url, form)
             .then((response) => {
                 localStorage.setItem("token", response.data.token) // <<<<< localStorage
+                clearFields()
                 history.push("/admin/trips/list")
 
             }).catch((error) => {
