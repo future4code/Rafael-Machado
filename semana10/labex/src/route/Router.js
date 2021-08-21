@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { createGlobalStyle } from "styled-components"
 import AdminHomePage from '../pages/AdminHomePage'
 import ApplicationFormPage from '../pages/ApplicationFormPage'
-import CreateTripPage from '../pages/CreateTripPage'
+import CreateTripPage from '../pages/CreateTripPage/CreateTripPage'
 import HomePage from '../pages/HomePage'
 import ListTripsPage from '../pages/ListTripsPage'
 import LoginPage from '../pages/LoginPage'
