@@ -28,6 +28,10 @@ const AdminHomePage = () => {
         
     }
 
+    const goToHomePage = () => {
+        history.push("/")
+    }
+
     const getTrips = () => {
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-machado-lovelace/trips"
                 
@@ -80,12 +84,9 @@ const AdminHomePage = () => {
 
     return (
         <ContainerAdminHomePage>
-            <p>AdminHomePage</p>
-            <strong>Painel Administrativo</strong>
-            <p>Para o administrador ver a lista de viagens e poder
-                 deletá-las ou acessar o detalhe de cada uma delas </p>
+            <h2>Painel Administrativo</h2>
         <MenuBotoes>
-            <button onClick={history.goBack}> Voltar </button>
+            <button onClick={goToHomePage}> Página Inicial </button>
             <button onClick={goToCreateTripPage}> Criar Viagem </button>
             <button onClick={logout}> Logout </button>
         </MenuBotoes>

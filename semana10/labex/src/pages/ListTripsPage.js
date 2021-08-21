@@ -11,6 +11,11 @@ const ListTripsPage = () => {
         history.push("/trips/application")
     }
 
+    const goToHomePage = () => {
+        history.push("/")
+    }
+
+
     useEffect(() => {
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafael-machado-lovelace/trips"
                 
@@ -40,9 +45,9 @@ const ListTripsPage = () => {
  
     return (
         <div>
-            <p>Lista de Viagens - ListTripsPage</p>
+            <h2>Lista de Viagens</h2>
 
-            <button onClick={history.goBack}> Voltar </button>
+            <button onClick={goToHomePage}> Voltar </button>
             <button onClick={goToApplicationFormPage}> Inscrever-se </button>
 
             {allTrips}

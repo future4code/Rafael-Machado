@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { createGlobalStyle } from "styled-components"
 import AdminHomePage from '../pages/AdminHomePage'
-import ApplicationFormPage from '../pages/ApplicationFormPage'
+import ApplicationFormPage from '../pages/ApplicationFormPage/ApplicationFormPage'
 import CreateTripPage from '../pages/CreateTripPage/CreateTripPage'
 import HomePage from '../pages/HomePage'
 import ListTripsPage from '../pages/ListTripsPage'

@@ -13,7 +13,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <p>LabeX - HomePage</p>
+            <h1>LabeX - HomePage</h1>
             <button onClick={goToListTripsPage}> Ver Viagens </button>
             <button onClick={goToLoginPage}> Área de Admin </button>
         </div>
