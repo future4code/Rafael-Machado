@@ -14,7 +14,7 @@ const SignUpForm = ({setRightButtonText}) => {
 
   const onSubmitForm = (event) => {
     event.preventDefault()
-    signUp(form, clear, history)
+    signUp(form, clear, history, setRightButtonText)
     // signUp(form, clear, history, setRightButtonText, setIsLoading)
   }
 
