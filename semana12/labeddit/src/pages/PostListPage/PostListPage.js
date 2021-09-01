@@ -1,6 +1,8 @@
 import Button from '@material-ui/core/Button'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 const PostListPage = () => {
+    useProtectedPage()
     return (
         <div>
             <h1> Post List Page </h1>
