@@ -3,18 +3,23 @@ import Typography from '@material-ui/core/Typography'
 
 
 const PostCard = (props) => {
-
+    // console.log(props)
     return (
         <PostCardContainer onClick={props.onClick}>
 
                 <Typography align={'center'} variant="h6">
                 {props.name}
-                {/* {props.name.toUpperCase()} */}
+               
                 </Typography>
-                
+
+                {/* <Typography align={'center'}>
+                <p>Titulo</p>{props.title}
+                </Typography> */}
+
                 <Typography align={'center'}>
-                {props.postText}
+                <p>Postagem</p>{props.postText}
                 </Typography>
+
 
                 {/* Post Footer */}
 
