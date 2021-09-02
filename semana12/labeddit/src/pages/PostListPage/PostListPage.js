@@ -1,14 +1,21 @@
 // import Button from '@material-ui/core/Button'
+import { useHistory } from 'react-router-dom'
 import PostCard from '../../components/PostCard/PostCard'
 import { BASE_URL } from '../../constants/urls'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
+import { goToDetails } from '../../routes/coordinator'
 import { PostListContainer } from './styled'
 
 const PostListPage = () => {
     useProtectedPage()
+    const history = useHistory()
     const posts = useRequestData([], `${BASE_URL}/posts`)
     // console.log(posts)
+
+    const onClickCard = (id) => {
+        goToDetails(history, id)
+    }
 
     const eachPost = posts.map((post) => {
         return <PostCard
@@ -17,7 +24,7 @@ const PostListPage = () => {
         postText={post.body}
         votes={post.voteSum}
         comments={post.commentCount}
-        onClick={() => null}
+        onClick={() => onClickCard(post.id)}
         />
     })
     
