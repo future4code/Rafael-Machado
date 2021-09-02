@@ -1,10 +1,13 @@
+import { ErrorImage, ErrorPageContainer } from "./styled"
+import error from "../../assets/error.png"
 
 
 const ErrorPage = () => {
     return (
-        <div>
-            <h1> Error Page </h1>
-        </div>
+        <ErrorPageContainer>
+            <ErrorImage src={error} />
+            
+        </ErrorPageContainer>
     )
 }
 
