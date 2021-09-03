@@ -12,6 +12,7 @@ const PostListPage = () => {
     useProtectedPage()
     const history = useHistory()
     const posts = useRequestData([], `${BASE_URL}/posts`)
+    
     // console.log(posts)
 
     const onClickCard = (id) => {
