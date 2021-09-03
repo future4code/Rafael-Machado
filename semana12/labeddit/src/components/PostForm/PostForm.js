@@ -6,13 +6,16 @@ import useForm from '../../hooks/useForm'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { createPost } from '../../services/postRequests'
 
-const AddPostForm = () => {
+const AddPostForm = (props) => {
   const [form, onChange, clear] = useForm({ title: "", body: "" })
   const [isLoading, setIsLoading] = useState(false)
     // console.log("ADD POST", form)
+
+  const idteste = props
+
   const onSubmitForm = (event) => {
     event.preventDefault()
-    createPost(form, clear, setIsLoading)
+    createPost(form, clear, setIsLoading, idteste)
   }
 
   return (

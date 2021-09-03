@@ -18,6 +18,8 @@ const PostListPage = () => {
         goToDetails(history, id)
     }
 
+    const teste = "id-123456"
+
     const eachPost = posts.map((post) => {
         return <PostCard
         key={post.id}
@@ -32,7 +34,7 @@ const PostListPage = () => {
     
     return (
         <PostListContainer>
-            <AddPostForm />
+            <AddPostForm idteste={teste}/>
             {eachPost}
         </PostListContainer>
     )

@@ -19,7 +19,7 @@ const PostDetailsPage = () => {
     const comments = useRequestData([], `${BASE_URL}/posts/${params.id}/comments`)
     console.log("PARAMS ID", params.id)
     // console.log("LISTA DE POSTS", posts)
-    console.log("COMENTÁRIOS", comments)
+    // console.log("COMENTÁRIOS", comments)
 
     const newPost = posts && posts.filter((post) => {
 

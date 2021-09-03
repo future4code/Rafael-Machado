@@ -1,4 +1,4 @@
-import { CommentCardContainer, StyledText } from "./styled"
+import { CommentCardContainer } from "./styled"
 import Typography from '@material-ui/core/Typography'
 
 
