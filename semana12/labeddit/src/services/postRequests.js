@@ -2,7 +2,7 @@ import axios from "axios"
 import { BASE_URL } from '../constants/urls'
 
 export const createPost = (body, clear, setIsLoading, id) => {
-  console.log("ID FINAL", id)
+  
   setIsLoading(true)
     axios.post(`${BASE_URL}/posts`, body, {
       headers: {
@@ -21,9 +21,10 @@ export const createPost = (body, clear, setIsLoading, id) => {
   }
 
 
-  export const createComment = (body, clear, setIsLoading) => {
+  export const createComment = (body, clear, setIsLoading, id) => {
+    // console.log("ID FINAL", id.postID)
     setIsLoading(true)
-      axios.post(`${BASE_URL}/posts`, body, {
+      axios.post(`${BASE_URL}/posts/${id.postID}/comments`, body, {
         headers: {
           Authorization: localStorage.getItem("token")
         }

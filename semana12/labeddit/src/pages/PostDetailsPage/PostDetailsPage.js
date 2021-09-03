@@ -7,6 +7,7 @@ import useRequestData from "../../hooks/useRequestData"
 import Button from '@material-ui/core/Button'
 import { PostDetailsContainer } from './styled'
 import { goToPostList } from '../../routes/coordinator'
+import AddCommentForm from "../../components/CommentForm/CommentForm"
 
 
 const PostDetailsPage = () => {
@@ -17,7 +18,7 @@ const PostDetailsPage = () => {
     const params = useParams()
 
     const comments = useRequestData([], `${BASE_URL}/posts/${params.id}/comments`)
-    console.log("PARAMS ID", params.id)
+    // console.log("PARAMS ID", params.id)
     // console.log("LISTA DE POSTS", posts)
     // console.log("COMENTÁRIOS", comments)
 
@@ -51,6 +52,7 @@ const PostDetailsPage = () => {
 
             <h2> Detalhe do Post </h2>
             {eachPost}
+            <AddCommentForm postID={params.id} />
             <h2> Comentários </h2>
             {eachComment}
             <Button
