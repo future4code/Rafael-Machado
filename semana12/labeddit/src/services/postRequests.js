@@ -21,7 +21,7 @@ export const createPost = (body, clear, setIsLoading) => {
 
 
   export const createComment = (body, clear, setIsLoading, id) => {
-    // console.log("ID FINAL", id.postID)
+    
     setIsLoading(true)
       axios.post(`${BASE_URL}/posts/${id.postID}/comments`, body, {
         headers: {

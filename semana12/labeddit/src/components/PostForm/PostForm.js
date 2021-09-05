@@ -9,7 +9,7 @@ import { createPost } from '../../services/postRequests'
 const AddPostForm = () => {
   const [form, onChange, clear] = useForm({ title: "", body: "" })
   const [isLoading, setIsLoading] = useState(false)
-    // console.log("ADD POST", form)
+  
 
   const onSubmitForm = (event) => {
     event.preventDefault()

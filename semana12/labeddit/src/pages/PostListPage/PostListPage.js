@@ -29,7 +29,7 @@ const PostListPage = () => {
         onClick={() => onClickCard(post.id)}
         />
     })
-   // TESTE LOADING 
+   
     return (
         <PostListContainer>
             <AddPostForm />
