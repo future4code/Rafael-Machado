@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button'
 import { PostDetailsContainer } from './styled'
 import { goToPostList } from '../../routes/coordinator'
 import AddCommentForm from "../../components/CommentForm/CommentForm"
-
+import Loading from "../../components/Loading/Loading"
 
 const PostDetailsPage = () => {
     useProtectedPage()
@@ -51,10 +51,10 @@ const PostDetailsPage = () => {
         <PostDetailsContainer>
 
             <h2> Detalhe do Post </h2>
-            {eachPost}
+            {eachPost ? eachPost : <Loading />}
             <AddCommentForm postID={params.id} />
             <h2> Comentários </h2>
-            {eachComment}
+            {eachComment ? eachComment : <Loading />}
             <Button
                 color={'primary'}
                 variant={'contained'}

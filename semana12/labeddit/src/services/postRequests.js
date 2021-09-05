@@ -1,8 +1,7 @@
 import axios from "axios"
 import { BASE_URL } from '../constants/urls'
 
-export const createPost = (body, clear, setIsLoading, id) => {
-  
+export const createPost = (body, clear, setIsLoading) => {
   setIsLoading(true)
     axios.post(`${BASE_URL}/posts`, body, {
       headers: {

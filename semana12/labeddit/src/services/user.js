@@ -20,15 +20,18 @@ export const login = (body, clear, history, setRightButtonText, setIsLoading) =>
     })
 }   
 
-export const signUp = (body, clear, history, setRightButtonText) => {
+export const signUp = (body, clear, history, setRightButtonText, setIsLoading) => {
+    setIsLoading(true)
     axios.post(`${BASE_URL}/users/signup`, body)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear()
+        setIsLoading(false)
         goToPostList(history)
         setRightButtonText("Logout")
     })
     .catch((err) => {
+        setIsLoading(false)
         alert("Erro no Cadastro", err.response.data.errors)
     })
 }

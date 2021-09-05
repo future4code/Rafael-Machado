@@ -7,14 +7,13 @@ import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
 import { goToDetails } from '../../routes/coordinator'
 import { PostListContainer } from './styled'
+import Loading from "../../components/Loading/Loading"
 
 const PostListPage = () => {
     useProtectedPage()
     const history = useHistory()
     const posts = useRequestData([], `${BASE_URL}/posts`)
     
-    // console.log(posts)
-
     const onClickCard = (id) => {
         goToDetails(history, id)
     }
@@ -30,11 +29,11 @@ const PostListPage = () => {
         onClick={() => onClickCard(post.id)}
         />
     })
-    
+   // TESTE LOADING 
     return (
         <PostListContainer>
             <AddPostForm />
-            {eachPost}
+            {eachPost.length > 0 ? eachPost : <Loading />}
         </PostListContainer>
     )
 }
