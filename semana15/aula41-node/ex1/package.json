@@ -1,0 +1,14 @@
+{
+  "name": "aula41-node",
+  "version": "1.0.0",
+  "description": "Aula 41 - Node e package.json",
+  "main": "index.js",
+  "scripts": {
+    "start": "node exercicio1.js"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Rafael Machado",
+  "license": "ISC"
+}
