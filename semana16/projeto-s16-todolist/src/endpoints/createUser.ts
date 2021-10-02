@@ -19,6 +19,8 @@ export default async function createUser(
             res
             .status(400)
             .send("Preencha os campos NAME, NICKNAME e E-MAIL")
+
+            return
          }
 
         // consultar o banco de dados
