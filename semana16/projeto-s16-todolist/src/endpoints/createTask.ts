@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import moment from "moment"
 import insertTask from "../data/insertTask";
-import insertUser from "../data/insertUser";
+
 
 export default async function createTask(
     req: Request,
