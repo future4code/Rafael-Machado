@@ -28,6 +28,6 @@ export default async function signup(
 
     } catch (error: any) {
         console.log(error.message)
-        res.status(500).send("Alguma coisa deu errado")
+        res.status(500).send("Internal server error")
     }
 }
