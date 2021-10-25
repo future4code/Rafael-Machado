@@ -14,6 +14,24 @@ export default async function signup(
 
         const { name, email, password } = req.body
 
+        if(!name || !email || !password){
+            res.statusCode = 422
+            throw new Error("'name', 'email', or 'password' required")
+        }
+
+        if(password.length < 6){
+            res.statusCode = 422
+            throw new Error("a 6 digit 'password' is required")
+        }
+
+        const [user] = await connection(userTableName)
+            .where({email})
+
+        if (user) {
+            res.statusCode = 409
+            throw new Error("Email already in use")
+        }
+
         const id: string = generateId()
 
         const cypherPassword: string = generateHash(password)

@@ -14,13 +14,23 @@ export default async function getProfile(
 
         const tokenData = getTokenData(token)
 
+        if (!tokenData) {
+            res.statusCode = 401
+            throw new Error("Unauthorized")
+        }
+
         const [user] = await connection(userTableName)
             .where({ id: tokenData?.id })
 
-        const { id, name, email } = user    
+        if (!user) {
+            res.statusCode = 404
+            throw new Error("User not found")
+        }
 
-        res.send ({ id, name, email })    
-        
+        const { id, name, email } = user
+
+        res.send({ id, name, email })
+
     } catch (error: any) {
         console.log(error.message)
 
