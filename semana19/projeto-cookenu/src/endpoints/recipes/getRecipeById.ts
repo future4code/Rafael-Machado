@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import connection from "../../connection";
+import { recipeTableName } from "../../types";
 
 export default async function getRecipeById(
     req: Request,
@@ -6,8 +8,17 @@ export default async function getRecipeById(
 ): Promise<void> {
 
     try {
-        
-        
+
+        const [recipe] = await connection(recipeTableName)
+            .where({ id: req.params.id })
+
+        res.send({
+            id: recipe.id,
+            title: recipe.title,
+            description: recipe.description,
+            createdAt: recipe.created_at
+        })
+
     } catch (error: any) {
         console.log(error.message)
 
@@ -16,7 +27,6 @@ export default async function getRecipeById(
         } else {
             res.send(error.message)
         }
-        
     }
 
 }

@@ -11,7 +11,7 @@ export default async function createRecipe(
 
     try {
         const token = req.headers.authorization
-        const {title, description} = req.body
+        const { title, description } = req.body
 
         const tokenData = getTokenData(token!)
 
@@ -21,8 +21,8 @@ export default async function createRecipe(
 
         await connection(recipeTableName)
             .insert({
-                id, 
-                title, 
+                id,
+                title,
                 description,
                 created_at: createdAt,
                 author_id: tokenData!.id
@@ -30,7 +30,7 @@ export default async function createRecipe(
 
         res.send("Recipe successfully created")
 
-        
+
     } catch (error: any) {
         console.log(error.message)
 
@@ -39,7 +39,7 @@ export default async function createRecipe(
         } else {
             res.send(error.message)
         }
-        
+
     }
 
 }
