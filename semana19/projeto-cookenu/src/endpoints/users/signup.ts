@@ -18,16 +18,21 @@ export default async function signup(
 
         const cypherPassword: string = generateHash(password)
 
-        const token: string = generateToken({id})
+        const token: string = generateToken({ id })
 
         await connection(userTableName)
             .insert({ id, name, email, password: cypherPassword })
 
 
-        res.send({token})
+        res.send({ token })
 
     } catch (error: any) {
         console.log(error.message)
-        res.status(500).send("Internal server error")
+
+        if (res.statusCode === 200) {
+            res.status(500).send("Internal server error")
+        } else {
+            res.send(error.message)
+        }
     }
 }
