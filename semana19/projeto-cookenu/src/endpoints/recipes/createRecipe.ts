@@ -10,9 +10,9 @@ export default async function createRecipe(
 ): Promise<void> {
 
     try {
-        const token = req.headers.authorization
         const { title, description } = req.body
-
+        
+        const token = req.headers.authorization
         const tokenData = getTokenData(token!)
 
         if(!tokenData){

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import connection from "../../connection";
+import { getTokenData } from "../../services/authenticator";
 import { recipeTableName } from "../../types";
 
 export default async function getRecipeById(
@@ -8,6 +9,15 @@ export default async function getRecipeById(
 ): Promise<void> {
 
     try {
+
+        const token = req.headers.authorization
+        
+        const tokenData = getTokenData(token!)
+
+        if(!tokenData){
+            res.statusCode = 401
+            throw new Error("Unauthorized")
+        }
 
         const [recipe] = await connection(recipeTableName)
             .where({ id: req.params.id })
