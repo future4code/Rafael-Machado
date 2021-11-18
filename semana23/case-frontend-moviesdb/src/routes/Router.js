@@ -1,5 +1,6 @@
 import { Switch, Route } from "react-router-dom"
 import DetailsPage from "../pages/DetailsPage/DetailsPage"
+import ErrorPage from "../pages/Error/ErrorPage"
 import Home from "../pages/Home/Home"
 
 
@@ -13,7 +14,7 @@ const Router = () => {
                 <DetailsPage />
             </Route>
             <Route>
-                
+                <ErrorPage />   
             </Route>
         </Switch>
     )
