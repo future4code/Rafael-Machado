@@ -10,7 +10,7 @@ const Router = () => {
             <Route exact path="/">
                 <Home />    
             </Route>
-            <Route exact path="/movie/:id">
+            <Route exact path="/details/:id">
                 <DetailsPage />
             </Route>
             <Route>
