@@ -1,11 +1,14 @@
+import { BrowserRouter } from 'react-router-dom'
 
 
-function App() {
+const App = () => {
   return (
-    <div>
-      MOVIES APP
-    </div>
+    
+      <BrowserRouter>
+        {/* <Header /> */}
+        <Router />
+      </BrowserRouter>
   )
 }
 
-export default App;
+export default App
