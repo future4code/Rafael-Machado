@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import { goToDetailsPage } from "../../routes/coordinator"
+import { goToDetailsPage } from "../../routes/coordinator"
 import { MainContainer } from "./Home.styles"
 import { LANGUAGE } from "../../constants/language";
 import { BASE_URL } from "../../constants/urls"
-
-// import { useHistory } from "react-router";
+import { useHistory } from "react-router";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import axios from "axios"
 
@@ -12,17 +11,17 @@ import axios from "axios"
 const Home = () => {
     const [data, setData] = useState([])
     console.log("DATA", data)
-    // const history = useHistory()
+    const history = useHistory()
 
-    // const onClickCard = (id) => {
-    //     goToDetailsPage(history, id)
-    //   }
+    const onClickCard = (id) => {
+        goToDetailsPage(history, id)
+      }
 
     const getMovies = () => {
         
         axios.get(`${BASE_URL}/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&${LANGUAGE}&page=1`)                    
             .then((res) => {
-                setData(res.data)
+                setData(res.data.results)
                 
             })
             .catch((err) => {
@@ -35,18 +34,22 @@ const Home = () => {
         getMovies()
     }, [])
 
+    const movieCards = data &&
+    data.map((movie) => {
+        return (
+          <MovieCard
+            cardInfo={movie}
+            key={movie.id}
+            onClick={() => onClickCard(movie.id)}
+          />
+        )
+      })
 
     return (
-        <>
+        
            <MainContainer>
-                <MovieCard/>
-                <MovieCard/>
-                <MovieCard/>
-                <MovieCard/>
-                <MovieCard/>
-                <MovieCard/>
+               {movieCards}
            </MainContainer>
-        </>
     )
 }
 

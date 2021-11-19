@@ -1,12 +1,16 @@
 import React from 'react'
-import { CardImage, MovieCardContainer } from './MovieCard.styles'
+import { CardImage, CardVote, MovieCardContainer } from './MovieCard.styles'
 // import cardImage from "../../images/card_image_test.jpg"
 
 
-const MovieCard = () => {
+const MovieCard = ({cardInfo, onClick}) => {
+    
     return (
-        <MovieCardContainer>
-            <CardImage src="https://www.themoviedb.org/t/p/w220_and_h330_face/chTkFGToW5bsyw3hgLAe4S5Gt3.jpg" />
+        <MovieCardContainer onClick={onClick}>
+            <CardImage src={`https://image.tmdb.org/t/p/original${cardInfo.poster_path}`} />
+            <CardVote>
+                {cardInfo.vote_average}
+            </CardVote>
         </MovieCardContainer>
     )
 }
