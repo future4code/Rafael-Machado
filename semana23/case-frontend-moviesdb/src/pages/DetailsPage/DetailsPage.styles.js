@@ -6,6 +6,13 @@ export const GeneralContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow-x: hidden;
+
+    @media screen and (max-width: 800px) {
+        height: 100%;
+
+    }
+    
 
 `
 
@@ -18,13 +25,23 @@ export const InfoContainer = styled.div`
     max-width: 600px;
     min-width: 300px;
     justify-content: center;
-    
+    background-color: #313131;
+    border-radius: 10px;
+    margin-right: 30px;
+    height: auto;
+
+    @media screen and (max-width: 800px) {
+        margin: 10px;
+
+    }
+
 `
 
 export const MainTitle = styled.div`
     line-height: 1.1em;
     font-weight: 700;
     font-size: 1.7rem;
+    
 
     @media screen and (max-width: 800px) {
         line-height: 1.2em;
@@ -41,13 +58,52 @@ export const Overview = styled.p`
     line-height: 1.7;
 `
 
+export const GenderWrap = styled.div`
+    display: flex;
+    justify-content: left;
+
+    p {
+        margin-right: 50px;
+        border: 2px solid white;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    @media screen and (max-width: 800px) {
+        p {
+        margin-right: 20px;
+    }
+    }
+`
+
+export const DateRunTime = styled.div`
+    display: flex;
+    justify-content: space-around;
+    justify-content: left;
+
+    p {
+        margin-right: 40px;
+    }
+`
+
 
 export const MoviePoster = styled.img`
     border-radius: 10px;
-    width: 400px;
-    height: 550px;
+    width: 450px;
+    height: 600px;
     margin: 15px;
     display: flex;
     flex-direction: column;
     justify-Content: flex-end;
+    
+
+    @media screen and (max-width: 800px) {
+        width: 90%;
+        height: 65%;
+        justify-Content: center;
+        margin: 10px;
+        max-width: 450px;
+        
+        
+    }
 `
