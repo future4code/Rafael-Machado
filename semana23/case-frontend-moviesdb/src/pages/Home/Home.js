@@ -10,7 +10,6 @@ import axios from "axios"
 
 const Home = () => {
     const [data, setData] = useState([])
-    console.log("DATA", data)
     const history = useHistory()
 
     const onClickCard = (id) => {

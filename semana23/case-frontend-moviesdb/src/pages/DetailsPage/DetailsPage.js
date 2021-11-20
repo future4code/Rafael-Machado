@@ -41,8 +41,6 @@ const DetailsPage = () => {
 
         return `${hours} h ${minutes} min`
     }
-    
-    console.log(ConvertedTime())
 
     return (
         <GeneralContainer>
