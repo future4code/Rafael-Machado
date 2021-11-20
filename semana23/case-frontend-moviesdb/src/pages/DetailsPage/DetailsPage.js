@@ -1,17 +1,17 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useHistory } from "react-router";
 import { LANGUAGE } from '../../constants/language'
 import { BASE_URL } from '../../constants/urls'
-import { GeneralContainer, InfoContainer, MoviePoster, Overview, MainTitle, OriginalTitle, GenderWrap, DateRunTime } from './DetailsPage.styles'
+import { GeneralContainer, InfoContainer, MoviePoster, Overview, MainTitle, OriginalTitle, GenderWrap, DateRunTime, BackButton } from './DetailsPage.styles'
+import { goBack } from '../../routes/coordinator';
 
 
 const DetailsPage = () => {
     const [movie, setMovie] = useState({})
     const params = useParams()
-    console.log("MOVIE", movie)
-
-    
+    const history = useHistory()
 
     const getDetails = () => {
         axios.get(`${BASE_URL}/${params.id}?api_key=${process.env.REACT_APP_TMDB_KEY}&${LANGUAGE}`)
@@ -67,6 +67,7 @@ const DetailsPage = () => {
                 
                     )}
                 </GenderWrap>
+                <BackButton onClick={() => goBack(history)} aria-label="Botão para Voltar" />
                 
             </InfoContainer>
             <MoviePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />

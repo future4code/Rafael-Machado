@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { IoIosArrowBack } from "react-icons/io"
 
 export const GeneralContainer = styled.div`
     display: flex;
@@ -67,13 +68,17 @@ export const GenderWrap = styled.div`
         border: 2px solid white;
         border-radius: 10px;
         padding: 10px;
+        align-items: center;
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 810px) {
+        flex-wrap: wrap;
+
         p {
         margin-right: 20px;
     }
     }
+
 `
 
 export const DateRunTime = styled.div`
@@ -106,4 +111,11 @@ export const MoviePoster = styled.img`
         
         
     }
+`
+
+export const BackButton = styled(IoIosArrowBack)`
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
 `
