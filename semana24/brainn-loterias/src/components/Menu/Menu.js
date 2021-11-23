@@ -3,7 +3,7 @@
 const Menu = () => {
     return (
         <div>
-            MENU - SELECT
+            MENU - SELECT [ componente MENU ]
         </div>
     )
 }
