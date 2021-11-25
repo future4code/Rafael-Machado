@@ -1,5 +1,7 @@
 import { Switch, Route } from "react-router-dom"
+import ErrorPage from "../pages/Error/ErrorPage"
 import Homepage from "../pages/Home/Homepage"
+import Quina from "../pages/Quina/Quina"
 
 const Router = () => {
   return (
@@ -7,7 +9,13 @@ const Router = () => {
       <Route exact path="/">
         <Homepage />
       </Route>
-      <Route>Errorpage</Route>
+      <Route exact path="/quina">
+        <Quina />
+      </Route>
+
+      <Route>
+          <ErrorPage />
+        </Route>
     </Switch>
   )
 }

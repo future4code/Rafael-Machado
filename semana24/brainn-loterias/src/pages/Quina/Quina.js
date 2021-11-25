@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { BASE_URL } from "../../constants/urls"
 
-const Homepage = () => {
+const Quina = () => {
   const [loterias, setLoterias] = useState([])
   console.log(loterias)
   // const [relacaoConcursos, setRelacaoConcursos] = useState ([])
@@ -24,7 +24,7 @@ const Homepage = () => {
     getLoterias()
   }, [])
 
-  return <div>MEGA SENA</div>
+  return <div>QUINA - PAGE</div>
 }
 
-export default Homepage
+export default Quina
