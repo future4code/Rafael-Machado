@@ -1,30 +1,30 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { BASE_URL } from "../../constants/urls"
+// import axios from "axios"
+// import { useEffect, useState } from "react"
+// import { BASE_URL } from "../../constants/urls"
 
 const Quina = () => {
-  const [loterias, setLoterias] = useState([])
-  console.log(loterias)
+  // const [loterias, setLoterias] = useState([])
+  // console.log("QUINA-PAGE", loterias)
   // const [relacaoConcursos, setRelacaoConcursos] = useState ([])
   // const [concursos, setConcursos] = useState ([])
 
-  const getLoterias = () => {
-    axios
-      .get(`${BASE_URL}/loterias`)
+  // const getLoterias = () => {
+  //   axios
+  //     .get(`${BASE_URL}/loterias`)
 
-      .then((res) => {
-        setLoterias(res.data)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
+  //     .then((res) => {
+  //       setLoterias(res.data)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
 
-  useEffect(() => {
-    getLoterias()
-  }, [])
+  // useEffect(() => {
+  //   getLoterias()
+  // }, [])
 
-  return <div>QUINA - PAGE</div>
+  return <div> QUINA </div>
 }
 
 export default Quina
