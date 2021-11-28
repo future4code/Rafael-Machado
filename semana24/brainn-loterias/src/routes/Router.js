@@ -1,6 +1,7 @@
 import { Switch, Route } from "react-router-dom"
 import ErrorPage from "../pages/Error/ErrorPage"
 import Homepage from "../pages/Home/Homepage"
+import Lotofacil from "../pages/Lotofacil/Lotofacil"
 import Quina from "../pages/Quina/Quina"
 
 const Router = () => {
@@ -11,6 +12,9 @@ const Router = () => {
       </Route>
       <Route exact path="/quina">
         <Quina />
+      </Route>
+      <Route exact path="/lotofacil">
+        <Lotofacil />
       </Route>
 
       <Route>
