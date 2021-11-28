@@ -7,10 +7,7 @@ import { BASE_URL } from "./constants/urls"
 
 const App = () => {
   const [loterias, setLoterias] = useState([])
-  console.log("RENDERIZOU APP", loterias)
-
-  // const [relacaoConcursos, setRelacaoConcursos] = useState ([])
-  // const [concursos, setConcursos] = useState ([])
+  // console.log("RENDERIZOU APP", loterias)
 
   const getLoterias = () => {
     axios

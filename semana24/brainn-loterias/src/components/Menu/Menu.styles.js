@@ -9,6 +9,15 @@ export const GeneralContainer = styled.div`
   left: 7.5%;
   top: 10%;
 
+  @media screen and (max-width: 900px) {
+    top: unset;
+    left: unset;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5em;
+  }
+
 
 `
 
