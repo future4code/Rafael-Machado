@@ -12,11 +12,11 @@ import {
   GameTitle,
   GameNumberDate,
   Obs,
-} from "./Homepage.styles"
+} from "./Timemania.styles"
 import logoLoterias from "../../images/logo_cef.svg"
 import NumbersList from "../../components/NumbersList/NumbersList"
 
-const Homepage = () => {
+const Timemania = () => {
   const [relacaoConcurso, setRelacaoConcurso] = useState([])
   const [concursoId, setConcursoId] = useState("")
   const [concursos, setConcursos] = useState([])
@@ -25,9 +25,9 @@ const Homepage = () => {
     axios
       .get(`${BASE_URL}/loterias-concursos`)
       .then((res) => {
-        setRelacaoConcurso(res.data[0])
+        setRelacaoConcurso(res.data[4])
         if (relacaoConcurso) {
-          setConcursoId(res.data[0].concursoId)
+          setConcursoId(res.data[4].concursoId)
         }
 
         // getConcursosById(res.data[0].concursoId) --> outra forma de fazer a segunda requisição!
@@ -66,7 +66,7 @@ const Homepage = () => {
       <LeftCol></LeftCol>
       <TitleWrap>
         <LogoLoterias src={logoLoterias} />
-        <Title>MEGA-SENA</Title>
+        <Title>TIMEMANIA</Title>
       </TitleWrap>
       <GameTitle>
         <p>CONCURSO</p>
@@ -94,4 +94,4 @@ const Homepage = () => {
   )
 }
 
-export default Homepage
+export default Timemania

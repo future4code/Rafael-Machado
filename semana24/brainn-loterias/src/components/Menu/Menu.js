@@ -25,6 +25,10 @@ const Menu = ({ data }) => {
             {" "}
             {data[3] && data[3].nome.toUpperCase()}{" "}
           </option>
+          <option value={"/timemania"}>
+            {" "}
+            {data[4] && data[4].nome.toUpperCase()}{" "}
+          </option>
         </DropdownSelect>
       </label>
     </GeneralContainer>

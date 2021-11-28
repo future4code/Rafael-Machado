@@ -29,7 +29,7 @@ const Lotofacil = () => {
         if (relacaoConcurso) {
           setConcursoId(res.data[2].concursoId)
         }
-        
+
         // getConcursosById(res.data[0].concursoId) --> outra forma de fazer a segunda requisição!
         // excluindo o segundo useEffect na linha 48 + adicionando essa linha de código
       })
@@ -70,11 +70,12 @@ const Lotofacil = () => {
       </TitleWrap>
       <GameTitle>
         <p>CONCURSO</p>
-        
       </GameTitle>
       <GameNumberDate>
-          <p>{concursos.id} - {data && formatedDate}</p>
-        </GameNumberDate>
+        <p>
+          {concursos.id} - {data && formatedDate}
+        </p>
+      </GameNumberDate>
       <RightCol>
         <NumbersWrap>
           <ul>
@@ -85,7 +86,8 @@ const Lotofacil = () => {
           </ul>
         </NumbersWrap>
         <Obs>
-          Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.
+          Este sorteio é meramente ilustrativo e não possui nenhuma ligação com
+          a CAIXA.
         </Obs>
       </RightCol>
     </GeneralContainer>
