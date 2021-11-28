@@ -8,7 +8,7 @@ export const GeneralContainer = styled.div`
   @media screen and (max-width: 900px) {
     display: flex;
     flex-direction: column;
-    height: 1700px;
+    height: 2100px;
   }
 `
 export const LeftCol = styled.div`
@@ -21,7 +21,7 @@ export const LeftCol = styled.div`
   left: 0;
   width: 300px;
   height: 100vh;
-  background: ${colors.lotofacil};
+  background: ${colors.lotomania};
   z-index: 0;
   transform: skewX(10deg);
   transform-origin: right bottom;
@@ -36,7 +36,7 @@ export const LeftCol = styled.div`
     width: 100%;
     transform: skewY(10deg);
     transform-origin: top right;
-    height: 28%;
+    height: 23%;
   }
 `
 
