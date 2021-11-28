@@ -12,11 +12,11 @@ import {
   GameTitle,
   GameNumberDate,
   Obs,
-} from "./Lotofacil.styles"
+} from "./DiaDeSorte.styles"
 import logoLoterias from "../../images/logo_cef.svg"
 import NumbersList from "../../components/NumbersList/NumbersList"
 
-const Lotofacil = () => {
+const DiaDeSorte = () => {
   const [relacaoConcurso, setRelacaoConcurso] = useState([])
   const [concursoId, setConcursoId] = useState("")
   const [concursos, setConcursos] = useState([])
@@ -25,9 +25,9 @@ const Lotofacil = () => {
     axios
       .get(`${BASE_URL}/loterias-concursos`)
       .then((res) => {
-        setRelacaoConcurso(res.data[2])
+        setRelacaoConcurso(res.data[5])
         if (relacaoConcurso) {
-          setConcursoId(res.data[2].concursoId)
+          setConcursoId(res.data[5].concursoId)
         }
 
         // getConcursosById(res.data[0].concursoId) --> outra forma de fazer a segunda requisição!
@@ -65,7 +65,7 @@ const Lotofacil = () => {
       <LeftCol></LeftCol>
       <TitleWrap>
         <LogoLoterias src={logoLoterias} />
-        <Title>LOTOFÁCIL</Title>
+        <Title>DIA DE SORTE</Title>
       </TitleWrap>
       <GameTitle>
         <p>CONCURSO</p>
@@ -93,4 +93,4 @@ const Lotofacil = () => {
   )
 }
 
-export default Lotofacil
+export default DiaDeSorte

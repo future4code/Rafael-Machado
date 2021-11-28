@@ -59,7 +59,6 @@ const Lotomania = () => {
 
   const data = new Date(concursos?.data)
   const formatedDate = data.toLocaleDateString("pt-BR", { timeZone: "UTC" })
-  console.log("CONCURSOS MEGA", concursos)
 
   return (
     <GeneralContainer>

@@ -4,13 +4,11 @@ import { colors } from "../../constants/colors"
 export const GeneralContainer = styled.div`
   display: flex;
   background-color: #efefef;
-  width: 100%;
-  
 
   @media screen and (max-width: 900px) {
     display: flex;
     flex-direction: column;
-    height: 1100px;
+    height: 1250px;
   }
 `
 export const LeftCol = styled.div`
@@ -21,16 +19,16 @@ export const LeftCol = styled.div`
   color: #fff;
   bottom: 0;
   left: 0;
-  /* width: 300px; */
+  width: 300px;
   height: 100vh;
-  background: ${colors.megasena};
+  background: ${colors.diadesorte};
   z-index: 0;
   transform: skewX(10deg);
   transform-origin: right bottom;
   position: relative;
 
   @media screen and (max-width: 900px) {
-    flex: 0.5;
+    flex: unset;
     top: 0;
     bottom: 0;
     right: 0;
@@ -38,6 +36,7 @@ export const LeftCol = styled.div`
     width: 100%;
     transform: skewY(10deg);
     transform-origin: top right;
+    height: 39%;
   }
 `
 
@@ -50,9 +49,9 @@ export const RightCol = styled.div`
   align-items: center;
 
   @media screen and (max-width: 900px) {
-    flex: 0.5;
+    flex: unset;
     margin-right: 1.5em;
-    height: 100%;
+    height: 57%;
   }
 `
 

@@ -29,6 +29,10 @@ const Menu = ({ data }) => {
             {" "}
             {data[4] && data[4].nome.toUpperCase()}{" "}
           </option>
+          <option value={"/diadesorte"}>
+            {" "}
+            {data[5] && data[5].nome.toUpperCase()}{" "}
+          </option>
         </DropdownSelect>
       </label>
     </GeneralContainer>
