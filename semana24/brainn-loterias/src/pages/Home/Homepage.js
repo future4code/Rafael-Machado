@@ -20,16 +20,6 @@ const Homepage = () => {
   const [relacaoConcurso, setRelacaoConcurso] = useState([])
   const [concursoId, setConcursoId] = useState("")
   const [concursos, setConcursos] = useState([])
-  console.log("CONCURSO", concursos)
-  // console.log("RELAÇÃO", relacaoConcurso)
-
-  // -------------------->>>>>>>
-
-  // <ul>
-  // <li>
-  // </ul>
-
-  // -------------------->>>>>>>
 
   const getRelacaoConcursos = () => {
     axios
@@ -69,6 +59,7 @@ const Homepage = () => {
 
   const data = new Date(concursos?.data)
   const formatedDate = data.toLocaleDateString("pt-BR", { timeZone: "UTC" })
+  console.log("CONCURSOS MEGA", concursos)
 
   return (
     <GeneralContainer>
@@ -82,7 +73,7 @@ const Homepage = () => {
         
       </GameTitle>
       <GameNumberDate>
-          <p>{concursos.id} - {formatedDate}</p>
+          <p>{concursos.id} - {data && formatedDate}</p>
         </GameNumberDate>
       <RightCol>
         <NumbersWrap>

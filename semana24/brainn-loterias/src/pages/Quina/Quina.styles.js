@@ -21,7 +21,7 @@ export const LeftCol = styled.div`
   left: 0;
   width: 300px;
   height: 100vh;
-  background: ${colors.megasena};
+  background: ${colors.quina};
   z-index: 0;
   transform: skewX(10deg);
   transform-origin: right bottom;
