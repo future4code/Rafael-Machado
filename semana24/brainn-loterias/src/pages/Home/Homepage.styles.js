@@ -50,7 +50,7 @@ export const RightCol = styled.div`
   align-items: center;
 
   @media screen and (max-width: 900px) {
-    flex: 0.5;
+    flex: 0.6;
     margin-right: 1.5em;
     height: 100%;
   }

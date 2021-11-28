@@ -8,7 +8,7 @@ export const GeneralContainer = styled.div`
   @media screen and (max-width: 900px) {
     display: flex;
     flex-direction: column;
-    height: 1000px;
+    height: 1100px;
   }
 `
 export const LeftCol = styled.div`
@@ -48,7 +48,7 @@ export const RightCol = styled.div`
   align-items: center;
 
   @media screen and (max-width: 900px) {
-    flex: 0.5;
+    flex: 0.6;
     margin-right: 1.5em;
     height: 100%;
   }
