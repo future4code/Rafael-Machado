@@ -10,10 +10,10 @@ export const getAllProductsLogic = async (
   let result
 
   if (id) {
-    // busca produtos por id
+    
     result = await getProductById(id)
   } else {
-    // busca produtos com filtros
+   
     result = await filterProducts(name, tags)
   }
 
